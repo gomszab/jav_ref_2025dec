@@ -41,6 +41,44 @@ const dataArray = [ // tomb deklaralasa
 ]
 
 /**
+ * @type {HTMLDivElement} a megjelenitendo tablazatunk
+ */
+const table = document.createElement('div'); // letrehozok egy divet
+document.body.appendChild(table); // hozzacsatolom a bodyhoz
+/**
+ * @type {HTMLDivElement} a tablazatunk fejlece
+ */
+const tableHead = document.createElement('div'); // letrehozok egy divet a fejlecnek
+table.appendChild(tableHead); // hozzacsatolom a tabla divhez
+
+/**
+ * @type {HTMLSpanElement} a fejlec elso span eleme
+ */
+const headCellTelep = document.createElement('span'); // letrehozok egy spant
+tableHead.appendChild(headCellTelep); // hozzacsatolom a fejlechez
+headCellTelep.innerText = header[0]; // beallitom a tartalmanak a header elso elemet
+
+/**
+ * @type {HTMLSpanElement} a fejlec masodik span eleme
+ */
+const headCellAgazat = document.createElement('span'); // letrehozok egy spant
+tableHead.appendChild(headCellAgazat); // hozzacsatolom a fejlechez
+headCellAgazat.innerText = header[1]; // beallitom a tartalmanak a header masodik elemet
+
+/**
+ * @type {HTMLSpanElement} a fejlec harmadik span eleme
+ */
+const headCellPelda = document.createElement('span'); // letrehozok egy spant
+tableHead.appendChild(headCellPelda); // hozzacsatolom a fejlechez
+headCellPelda.innerText = header[2]; // beallitom a tartalmanak a header harmadik elemet
+
+/**
+ * @type {HTMLDivElement} egy div a tablazat torzsenek
+ */
+const tableBody = document.createElement('div'); // letrehozok egy divet
+table.appendChild(tableBody); // hozzacsatolom a tablazathoz
+
+/**
  * 
  * A fuggveny kiir egy tablazatot konzolra.
  * 
@@ -49,20 +87,46 @@ const dataArray = [ // tomb deklaralasa
  * @returns {void}
  */
 function renderByArray(arr){ // definialunk egy fuggvenyt egy parameterrel ami az adattombunk
-    // A string konkatenaciora olyan szintaxist hasznalsz amilyet akarsz
-    console.log(header[0] +" | "+ header[1] +" | " + header[2] +" |"); // Kiirom konzolra a tablazat fejlecet
+    tableBody.innerHTML = ''; // uritem a tablebody div tartalmat
     // olyan ciklust hasznalsz amilyet akarsz
     for(const obj of arr){ // vegigiteralunk az adattombon
         /**
-         * @type {string} Athen elso soranak osszeallitott tartalmat fogjuk ebben tarolni
+         * @type {HTMLDivElement} a tablazatunk egy sora
          */
-        let firstAthenRow = `${obj.where} | ${obj.what} |`; // beletesszuk az alapertelmezett ertekeket
-        if(obj.example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
-            firstAthenRow += `${obj.example1} | ${obj.example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
-        }else{ // egyebkent
-            firstAthenRow += `${obj.example1}      |`; // egy cellat fuzunk hozza
+        const row = document.createElement('div') // letrehozok egy divet a sornak
+        tableBody.appendChild(row); // hozzacsatolom a tablazat torzsehez
+
+        /**
+         * @type {HTMLSpanElement} a tablazatunk egy soranak elso cellaja
+         */
+        const cell1 = document.createElement('span'); // letrehozok egy span-t az elso cellanak
+        row.appendChild(cell1); // hozzacsatolom a sor divjehez
+        cell1.innerText = obj.where; // beallitom tartalomnak az aktualis elem where tulajdonsaganak erteket
+
+        /**
+         * @type {HTMLSpanElement} a tablazatunk egy soranak masodik cellaja
+         */
+        const cell2 = document.createElement('span'); // letrehozok egy span-t az masodik cellanak
+        row.appendChild(cell2); // hozzacsatolom a sor divjehez
+        cell2.innerText = obj.what; // beallitom tartalomnak az aktualis elem what tulajdonsaganak erteket
+
+        /**
+         * @type {HTMLSpanElement} a tablazatunk egy soranak harmadik cellaja
+         */
+        const cell3 = document.createElement('span'); // letrehozok egy span-t a harmadik cellanak
+        row.appendChild(cell3); // hozzacsatolom a sor divjehez
+        cell3.innerText = obj.example1; // beallitom tartalomnak az aktualis elem example1 tulajdonsaganak erteket
+
+        if(obj.example2){ // vizsgalom az aktualis elem example2 tulajdonsagat
+            /**
+            * @type {HTMLSpanElement} a tablazatunk egy soranak negyedik cellaja
+            */
+            const cell4 = document.createElement('span'); // ha definialva van, akkor letrehozok egy spant az example2 tulajdonsagnak
+            row.appendChild(cell4); //hozzacsatolom a sorhoz
+            cell4.innerText = obj.example2; // beallitom tartalmanak az aktualis elem example2 tulajdonsaganak erteket
+        }else{ // egyebkent, ha az example2 tulajdonsag nincs definialva
+            // colspan allitas helye
         }
-        console.log(firstAthenRow) // kiiratjuk az osszeallitott stringet
     }
 }
 
