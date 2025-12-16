@@ -3,11 +3,6 @@
  */
 
 /**
- * @type {string[]} a headerhez szukseges tomb
- */
-const header = ['Ókori település', 'Ágazat', 'Példa']; // a fejlectomb deklaralasa
-
-/**
  * @type {DataType[]} A tablazat torzset tartalmazo adattomb
  */
 const dataArray = [ // tomb deklaralasa
@@ -52,9 +47,14 @@ const tableHead = document.createElement('div'); // letrehozok egy divet a fejle
 table.appendChild(tableHead); // hozzacsatolom a tabla divhez
 
 /**
+ * @type {{title: string, colspan: number}[]} a headerhez szukseges tomb
+ */
+const header = [{title: 'Ókori település'}, {title: 'Ágazat'}, {title: 'Példa', colspan: 2}]; // a fejlectomb deklaralasa
+
+/**
  * kirendereli a tablazat fejlecet
  * 
- * @param {string[]} headerArr a tomb ami tartalmazza a fejlec szovegeit
+ * @param {{title: string, colspan: number}[]} headerArr a tomb ami tartalmazza a fejlec szovegeit
  * @param {HTMLElement} parent ahova hozzacsatoljuk a cellakat
  * 
  * @returns {void}
@@ -66,7 +66,10 @@ function headerRender(headerArr, parent){ // definialom a fuggvenyt
         */
         const headCellTelep = document.createElement('span'); // letrehozok egy spant
         parent.appendChild(headCellTelep); // hozzacsatolom a fejlechez
-        headCellTelep.innerText = header[i]; // beallitom a tartalmanak a header aktualis elemet
+        headCellTelep.innerText = header[i].title; // beallitom a tartalmanak a header aktualis elemet
+        if(header[i].colspan == 2){ // vizsgaljuk az aktualis elem 
+            // headercella colspan allitasanak a helye
+        }
     }
 }
 
