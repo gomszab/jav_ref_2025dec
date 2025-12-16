@@ -37,9 +37,59 @@ const dataArray = [ // tomb deklaralasa
 ]
 
 // A string konkatenaciora olyan szintaxist hasznalsz amilyet akarsz
-console.log(header[0] +" | "+ header[1] +" | " + header[2] +"| |"); // Kiirom konzolra a tablazat fejlecet
-console.log(`${dataArray[0].where} | ${dataArray[0].what} | ${dataArray[0].example1} | |`) // Kiirom konzolra a tablazat 1. sorat
-console.log(`${dataArray[1].where} | ${dataArray[1].what} | ${dataArray[1].example1} | |`) // Kiirom konzolra a tablazat 2. sorat
-console.log(`${dataArray[2].where} | ${dataArray[2].what} | ${dataArray[2].example1} | ${dataArray[2].example2} |`) // Kiirom konzolra a tablazat 3. sorat
-console.log(`${dataArray[3].where} | ${dataArray[3].what} | ${dataArray[3].example1} | |`) // Kiirom konzolra a tablazat 4. sorat
-console.log(`${dataArray[4].where} | ${dataArray[4].what} | ${dataArray[4].example1} | ${dataArray[4].example2} |`) // Kiirom konzolra a tablazat 5. sorat
+console.log(header[0] +" | "+ header[1] +" | " + header[2] +" |"); // Kiirom konzolra a tablazat fejlecet
+
+/**
+ * @type {string} Athen elso soranak osszeallitott tartalmat fogjuk ebben tarolni
+ */
+let firstAthenRow = `${dataArray[0].where} | ${dataArray[0].what} |`; // beletesszuk az alapertelmezett ertekeket
+if(dataArray[0].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
+    firstAthenRow += `${dataArray[0].example1} | ${dataArray[0].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
+}else{ // egyebkent
+    firstAthenRow += `${dataArray[0].example1}      |`; // egy cellat fuzunk hozza
+}
+console.log(firstAthenRow) // kiiratjuk az osszeallitott stringet
+
+/**
+ * @type {string} Athen masodik soranak osszeallitott tartalmat fogjuk ebben tarolni
+ */
+let secondAthenRow = `${dataArray[1].where} | ${dataArray[1].what} |`; // beletesszuk az alapertelmezett ertekeket
+if(dataArray[1].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
+    secondAthenRow += `${dataArray[1].example1} | ${dataArray[1].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
+}else{ // egyebkent
+    secondAthenRow += `${dataArray[1].example1}      |`; // egy cellat fuzunk hozza
+}
+console.log(secondAthenRow) // kiiratjuk az osszeallitott stringet
+
+/**
+ * @type {string} Athen masodik soranak osszeallitott tartalmat fogjuk ebben tarolni
+ */
+let egyiptomRow = `${dataArray[2].where} | ${dataArray[2].what} |`; // beletesszuk az alapertelmezett ertekeket
+if(dataArray[2].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
+    egyiptomRow += `${dataArray[2].example1} | ${dataArray[2].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
+}else{ // egyebkent
+    egyiptomRow += `${dataArray[2].example1}      |`; // egy cellat fuzunk hozza
+}
+console.log(egyiptomRow) // kiiratjuk az osszeallitott stringet
+
+/**
+ * @type {string} Athen masodik soranak osszeallitott tartalmat fogjuk ebben tarolni
+ */
+let firstSpartRow = `${dataArray[3].where} | ${dataArray[3].what} |`; // beletesszuk az alapertelmezett ertekeket
+if(dataArray[3].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
+    firstSpartRow += `${dataArray[3].example1} | ${dataArray[3].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
+}else{ // egyebkent
+    firstSpartRow += `${dataArray[3].example1}      |`; // egy cellat fuzunk hozza
+}
+console.log(firstSpartRow) // kiiratjuk az osszeallitott stringet
+
+/**
+ * @type {string} Athen masodik soranak osszeallitott tartalmat fogjuk ebben tarolni
+ */
+let secondSpartaRow = `${dataArray[4].where} | ${dataArray[4].what} |`; // beletesszuk az alapertelmezett ertekeket
+if(dataArray[4].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
+    secondSpartaRow += `${dataArray[4].example1} | ${dataArray[4].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
+}else{ // egyebkent
+    secondSpartaRow += `${dataArray[4].example1}      |`; // egy cellat fuzunk hozza
+}
+console.log(secondSpartaRow) // kiiratjuk az osszeallitott stringet
