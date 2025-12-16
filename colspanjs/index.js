@@ -86,18 +86,18 @@ table.appendChild(tableBody); // hozzacsatolom a tablazathoz
  * A fuggveny kiir egy tablazatot konzolra.
  * 
  * @param {DataType[]} arr az adattombunk amin vegig fogunk iteralni
- * 
+ * @param {HTMLElement} tbody a tablazat torzset tartalmazza, amihez hozzafuzzuk az uj sorokat
  * @returns {void}
  */
-function renderByArray(arr){ // definialunk egy fuggvenyt egy parameterrel ami az adattombunk
-    tableBody.innerHTML = ''; // uritem a tablebody div tartalmat
+function renderByArray(arr, tbody){ // definialunk egy fuggvenyt egy parameterrel ami az adattombunk
+    tbody.innerHTML = ''; // uritem a tbody div tartalmat
     // olyan ciklust hasznalsz amilyet akarsz
     for(const obj of arr){ // vegigiteralunk az adattombon
         /**
          * @type {HTMLDivElement} a tablazatunk egy sora
          */
         const row = document.createElement('div') // letrehozok egy divet a sornak
-        tableBody.appendChild(row); // hozzacsatolom a tablazat torzsehez
+        tbody.appendChild(row); // hozzacsatolom a tablazat torzsehez
 
         /**
          * @type {HTMLSpanElement} a tablazatunk egy soranak elso cellaja
@@ -133,7 +133,7 @@ function renderByArray(arr){ // definialunk egy fuggvenyt egy parameterrel ami a
     }
 }
 
-renderByArray(dataArray) // meghivjuk a fuggvenyt es kiiratjuk console-ra a tablazatunkat
+renderByArray(dataArray, tableBody) // meghivjuk a fuggvenyt es kiiratjuk console-ra a tablazatunkat
 
 /**
  * @type {HTMLButtonElement} a gomb ami hozzafuz egy szimpla sort az adattombhoz es kiirja a tablazatot
@@ -154,7 +154,7 @@ simpleButton.addEventListener('click', function(){ // regisztralunk egy click es
         example1: 'TesztExample1' // example1 tulajdonsag ertekadas
     }
     dataArray.push(newRow); // hozzadjuk az objektumot az adattombhoz
-    renderByArray(dataArray); // meghivjuk a frissitett adattombbel a tablazat kiirasat
+    renderByArray(dataArray, tableBody); // meghivjuk a frissitett adattombbel a tablazat kiirasat
 })
 
 /**
@@ -178,5 +178,5 @@ doubleButton.addEventListener('click', function(){ // regisztralunk egy click es
         example2: 'TesztEx2' // example2 tulajdonsag ertekadas
     }
     dataArray.push(newRow); // hozzadjuk az objektumot az adattombhoz
-    renderByArray(dataArray); // meghivjuk a frissitett adattombbel a tablazat kiirasat
+    renderByArray(dataArray, tableBody); // meghivjuk a frissitett adattombbel a tablazat kiirasat
 })
