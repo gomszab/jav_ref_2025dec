@@ -1,10 +1,14 @@
 /**
+ * @typedef {{where: string, what: string, example1: string, example2?: string}} DataType
+ */
+
+/**
  * @type {string[]} a headerhez szukseges tomb
  */
 const header = ['Ókori település', 'Ágazat', 'Példa']; // a fejlectomb deklaralasa
 
 /**
- * @type {{where: string, what: string, example1: string, example2?: string}[]} A tablazat torzset tartalmazo adattomb
+ * @type {DataType[]} A tablazat torzset tartalmazo adattomb
  */
 const dataArray = [ // tomb deklaralasa
     { // elso sor objektumanak deklaralasa
@@ -36,18 +40,30 @@ const dataArray = [ // tomb deklaralasa
     }
 ]
 
-// A string konkatenaciora olyan szintaxist hasznalsz amilyet akarsz
-console.log(header[0] +" | "+ header[1] +" | " + header[2] +" |"); // Kiirom konzolra a tablazat fejlecet
-// olyan ciklust hasznalsz amilyet akarsz
-for(const obj of dataArray){ // vegigiteralunk az adattombon
-    /**
-     * @type {string} Athen elso soranak osszeallitott tartalmat fogjuk ebben tarolni
-     */
-    let firstAthenRow = `${obj.where} | ${obj.what} |`; // beletesszuk az alapertelmezett ertekeket
-    if(obj.example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
-        firstAthenRow += `${obj.example1} | ${obj.example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
-    }else{ // egyebkent
-        firstAthenRow += `${obj.example1}      |`; // egy cellat fuzunk hozza
+/**
+ * 
+ * A fuggveny kiir egy tablazatot konzolra.
+ * 
+ * @param {DataType[]} arr az adattombunk amin vegig fogunk iteralni
+ * 
+ * @returns {void}
+ */
+function renderByArray(arr){ // definialunk egy fuggvenyt egy parameterrel ami az adattombunk
+    // A string konkatenaciora olyan szintaxist hasznalsz amilyet akarsz
+    console.log(header[0] +" | "+ header[1] +" | " + header[2] +" |"); // Kiirom konzolra a tablazat fejlecet
+    // olyan ciklust hasznalsz amilyet akarsz
+    for(const obj of arr){ // vegigiteralunk az adattombon
+        /**
+         * @type {string} Athen elso soranak osszeallitott tartalmat fogjuk ebben tarolni
+         */
+        let firstAthenRow = `${obj.where} | ${obj.what} |`; // beletesszuk az alapertelmezett ertekeket
+        if(obj.example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
+            firstAthenRow += `${obj.example1} | ${obj.example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
+        }else{ // egyebkent
+            firstAthenRow += `${obj.example1}      |`; // egy cellat fuzunk hozza
+        }
+        console.log(firstAthenRow) // kiiratjuk az osszeallitott stringet
     }
-    console.log(firstAthenRow) // kiiratjuk az osszeallitott stringet
 }
+
+renderByArray(dataArray) // meghivjuk a fuggvenyt es kiiratjuk console-ra a tablazatunkat
