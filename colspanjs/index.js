@@ -52,25 +52,25 @@ const tableHead = document.createElement('div'); // letrehozok egy divet a fejle
 table.appendChild(tableHead); // hozzacsatolom a tabla divhez
 
 /**
- * @type {HTMLSpanElement} a fejlec elso span eleme
+ * kirendereli a tablazat fejlecet
+ * 
+ * @param {string[]} headerArr a tomb ami tartalmazza a fejlec szovegeit
+ * @param {HTMLElement} parent ahova hozzacsatoljuk a cellakat
+ * 
+ * @returns {void}
  */
-const headCellTelep = document.createElement('span'); // letrehozok egy spant
-tableHead.appendChild(headCellTelep); // hozzacsatolom a fejlechez
-headCellTelep.innerText = header[0]; // beallitom a tartalmanak a header elso elemet
+function headerRender(headerArr, parent){ // definialom a fuggvenyt
+    for(let i = 0; i< headerArr.length; i++){ // novekmenyes ciklussal 0tol a tomb hosszaig megyek, hogy a segitsegevel adott indexen levo elemet elerjem
+        /**
+        * @type {HTMLSpanElement} a fejlec aktualis cellaja
+        */
+        const headCellTelep = document.createElement('span'); // letrehozok egy spant
+        parent.appendChild(headCellTelep); // hozzacsatolom a fejlechez
+        headCellTelep.innerText = header[i]; // beallitom a tartalmanak a header aktualis elemet
+    }
+}
 
-/**
- * @type {HTMLSpanElement} a fejlec masodik span eleme
- */
-const headCellAgazat = document.createElement('span'); // letrehozok egy spant
-tableHead.appendChild(headCellAgazat); // hozzacsatolom a fejlechez
-headCellAgazat.innerText = header[1]; // beallitom a tartalmanak a header masodik elemet
-
-/**
- * @type {HTMLSpanElement} a fejlec harmadik span eleme
- */
-const headCellPelda = document.createElement('span'); // letrehozok egy spant
-tableHead.appendChild(headCellPelda); // hozzacsatolom a fejlechez
-headCellPelda.innerText = header[2]; // beallitom a tartalmanak a header harmadik elemet
+headerRender(header, tableHead) // meghivom a tablazat fejlecet renderelo fuggvenyt
 
 /**
  * @type {HTMLDivElement} egy div a tablazat torzsenek
