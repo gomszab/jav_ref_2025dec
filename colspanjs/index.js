@@ -89,3 +89,27 @@ simpleButton.addEventListener('click', function(){ // regisztralunk egy click es
     dataArray.push(newRow); // hozzadjuk az objektumot az adattombhoz
     renderByArray(dataArray); // meghivjuk a frissitett adattombbel a tablazat kiirasat
 })
+
+/**
+ * @type {HTMLButtonElement} a gomb ami hozzafuz egy dupla peldas sort az adattombhoz es kiirja a tablazatot
+ */
+const doubleButton = document.createElement('button'); //letrehozunk egy gombot
+doubleButton.innerText = 'Dupla peldas sor'; // beallitjuk a gomb szoveget 
+document.body.appendChild(doubleButton); // hozzacsatoljuk a bodyhoz
+doubleButton.addEventListener('click', function(){ // regisztralunk egy click esemenykezelot, mivel az e-t nem hasznaljuk, nem adjuk meg.
+    console.log('##########################################') // console elvalaszto
+    console.log('--------------- Clickeles utan -----------') // console elvalaszto
+    console.log('##########################################') // console elvalaszto
+    
+    /**
+     * @type {DataType} tartalmaz egy teszt adatot, amit hozzaadunk a tombhoz
+     */
+    const newRow = { // objektum deklaralasa
+        where: 'TestWhere', // where tulajdonsag ertekadas
+        what: 'TesztWhat', // what tulajdonsag ertekadas
+        example1: 'TesztExample1', // example1 tulajdonsag ertekadas
+        example2: 'TesztEx2' // example2 tulajdonsag ertekadas
+    }
+    dataArray.push(newRow); // hozzadjuk az objektumot az adattombhoz
+    renderByArray(dataArray); // meghivjuk a frissitett adattombbel a tablazat kiirasat
+})
