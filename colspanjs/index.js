@@ -67,3 +67,25 @@ function renderByArray(arr){ // definialunk egy fuggvenyt egy parameterrel ami a
 }
 
 renderByArray(dataArray) // meghivjuk a fuggvenyt es kiiratjuk console-ra a tablazatunkat
+
+/**
+ * @type {HTMLButtonElement} a gomb ami hozzafuz egy szimpla sort az adattombhoz es kiirja a tablazatot
+ */
+const simpleButton = document.createElement('button'); // letrehozunk egy gombot
+simpleButton.innerText = 'Szimpla sor'; // beallitjuk a gomb szoveget
+document.body.appendChild(simpleButton); // hozzacsatoljuk a bodyhoz
+simpleButton.addEventListener('click', function(){ // regisztralunk egy click esemenykezelot, mivel az e-t nem hasznaljuk, nem adjuk meg.
+    console.log('##########################################') // console elvalaszto
+    console.log('--------------- Clickeles utan -----------') // console elvalaszto
+    console.log('##########################################') //console elvalaszto
+    /**
+     * @type {DataType} tartalmaz egy teszt adatot, amit hozzaadunk a tombhoz
+     */
+    const newRow = { // objektum deklaralasa
+        where: 'TestWhere', // where tulajdonsag ertekadas
+        what: 'TesztWhat', // what tulajdonsag ertekadas
+        example1: 'TesztExample1' // example1 tulajdonsag ertekadas
+    }
+    dataArray.push(newRow); // hozzadjuk az objektumot az adattombhoz
+    renderByArray(dataArray); // meghivjuk a frissitett adattombbel a tablazat kiirasat
+})
