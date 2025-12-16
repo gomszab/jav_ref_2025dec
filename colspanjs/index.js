@@ -38,58 +38,16 @@ const dataArray = [ // tomb deklaralasa
 
 // A string konkatenaciora olyan szintaxist hasznalsz amilyet akarsz
 console.log(header[0] +" | "+ header[1] +" | " + header[2] +" |"); // Kiirom konzolra a tablazat fejlecet
-
-/**
- * @type {string} Athen elso soranak osszeallitott tartalmat fogjuk ebben tarolni
- */
-let firstAthenRow = `${dataArray[0].where} | ${dataArray[0].what} |`; // beletesszuk az alapertelmezett ertekeket
-if(dataArray[0].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
-    firstAthenRow += `${dataArray[0].example1} | ${dataArray[0].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
-}else{ // egyebkent
-    firstAthenRow += `${dataArray[0].example1}      |`; // egy cellat fuzunk hozza
+// olyan ciklust hasznalsz amilyet akarsz
+for(const obj of dataArray){ // vegigiteralunk az adattombon
+    /**
+     * @type {string} Athen elso soranak osszeallitott tartalmat fogjuk ebben tarolni
+     */
+    let firstAthenRow = `${obj.where} | ${obj.what} |`; // beletesszuk az alapertelmezett ertekeket
+    if(obj.example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
+        firstAthenRow += `${obj.example1} | ${obj.example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
+    }else{ // egyebkent
+        firstAthenRow += `${obj.example1}      |`; // egy cellat fuzunk hozza
+    }
+    console.log(firstAthenRow) // kiiratjuk az osszeallitott stringet
 }
-console.log(firstAthenRow) // kiiratjuk az osszeallitott stringet
-
-/**
- * @type {string} Athen masodik soranak osszeallitott tartalmat fogjuk ebben tarolni
- */
-let secondAthenRow = `${dataArray[1].where} | ${dataArray[1].what} |`; // beletesszuk az alapertelmezett ertekeket
-if(dataArray[1].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
-    secondAthenRow += `${dataArray[1].example1} | ${dataArray[1].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
-}else{ // egyebkent
-    secondAthenRow += `${dataArray[1].example1}      |`; // egy cellat fuzunk hozza
-}
-console.log(secondAthenRow) // kiiratjuk az osszeallitott stringet
-
-/**
- * @type {string} Athen masodik soranak osszeallitott tartalmat fogjuk ebben tarolni
- */
-let egyiptomRow = `${dataArray[2].where} | ${dataArray[2].what} |`; // beletesszuk az alapertelmezett ertekeket
-if(dataArray[2].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
-    egyiptomRow += `${dataArray[2].example1} | ${dataArray[2].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
-}else{ // egyebkent
-    egyiptomRow += `${dataArray[2].example1}      |`; // egy cellat fuzunk hozza
-}
-console.log(egyiptomRow) // kiiratjuk az osszeallitott stringet
-
-/**
- * @type {string} Athen masodik soranak osszeallitott tartalmat fogjuk ebben tarolni
- */
-let firstSpartRow = `${dataArray[3].where} | ${dataArray[3].what} |`; // beletesszuk az alapertelmezett ertekeket
-if(dataArray[3].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
-    firstSpartRow += `${dataArray[3].example1} | ${dataArray[3].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
-}else{ // egyebkent
-    firstSpartRow += `${dataArray[3].example1}      |`; // egy cellat fuzunk hozza
-}
-console.log(firstSpartRow) // kiiratjuk az osszeallitott stringet
-
-/**
- * @type {string} Athen masodik soranak osszeallitott tartalmat fogjuk ebben tarolni
- */
-let secondSpartaRow = `${dataArray[4].where} | ${dataArray[4].what} |`; // beletesszuk az alapertelmezett ertekeket
-if(dataArray[4].example2 != undefined){ // vizsgaljuk, hogy az example2 erteke definialva van-e
-    secondSpartaRow += `${dataArray[4].example1} | ${dataArray[4].example2} |`; // ha definialva van, akkor 2 cellat fuzunk hozza
-}else{ // egyebkent
-    secondSpartaRow += `${dataArray[4].example1}      |`; // egy cellat fuzunk hozza
-}
-console.log(secondSpartaRow) // kiiratjuk az osszeallitott stringet
