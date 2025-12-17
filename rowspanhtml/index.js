@@ -67,26 +67,11 @@ function newRowAppend(newRow, tbody){ // definialom a fuggvenyt ami hozzafuz uj 
     const row = document.createElement('div') // letrehozok egy divet a sornak
     tbody.appendChild(row); // hozzacsatolom a tablazat torzsehez
 
-    /**
-     * @type {HTMLSpanElement} a tablazatunk egy soranak elso cellaja
-     */
-    const cell1 = document.createElement('span'); // letrehozok egy span-t az elso cellanak
-    row.appendChild(cell1); // hozzacsatolom a sor divjehez
-    cell1.innerText = newRow.where; // beallitom tartalomnak az uj elem where tulajdonsaganak erteket
+    createCell(newRow.where, row); // letrehozok egy cellat az where tartalommal (ezt el kene tarolni, hogy rowspant tudjunk allitani)
 
-    /**
-     * @type {HTMLSpanElement} a tablazatunk egy soranak masodik cellaja
-     */
-    const cell2 = document.createElement('span'); // letrehozok egy span-t az masodik cellanak
-    row.appendChild(cell2); // hozzacsatolom a sor divjehez
-    cell2.innerText = newRow.what1; // beallitom tartalomnak az uj elem what1 tulajdonsaganak erteket
+    createCell(newRow.what1, row); // letrehozok egy cellat az what1 tartalommal
 
-    /**
-     * @type {HTMLSpanElement} a tablazatunk egy soranak harmadik cellaja
-     */
-    const cell3 = document.createElement('span'); // letrehozok egy span-t a harmadik cellanak
-    row.appendChild(cell3); // hozzacsatolom a sor divjehez
-    cell3.innerText = newRow.example1; // beallitom tartalomnak az uj elem example1 tulajdonsaganak erteket
+    createCell(newRow.example1, row); // letrehozok egy cellat az example1 tartalommal
 
     if(newRow.what2 && newRow.example2){ // vizsgalom, hogy a newRow objektum what2 es example2 tulajdonsaga definialva van-e
          // rowspan allitas helye
@@ -95,21 +80,27 @@ function newRowAppend(newRow, tbody){ // definialom a fuggvenyt ami hozzafuz uj 
          */
         const row2 = document.createElement('div') // letrehozok egy divet
         tbody.appendChild(row2); // hozzacsatolom tbodyhoz
+         createCell(newRow.what2, row2); // letrehozok egy cellat a what2 tartalommal
 
-        /**
-         * @type {HTMLSpanElement} a masodik sor elso cellaja
-         */
-        const cell4 = document.createElement('span'); // letrehozok egy spant
-        row2.appendChild(cell4); // a sorhoz csatolom
-        cell4.innerText = newRow.what2; // beallitom az uj elem what2 tulajdonsagat
-
-        /**
-         * @type {HTMLSpanElement} a masodik sor masodik cellaja
-         */
-        const cell5 = document.createElement('span'); // letrehozok egy spant
-        row2.appendChild(cell5); // a sorhoz csatolom
-        cell5.innerText = newRow.example2; // beallitom az uj elem example2 tulajdonsagat
+         createCell(newRow.example2, row2); // letrehozok egy cellat az example2 tartalommal
     }
-   
+}
 
+/**
+ * 
+ * Hozzafuz egy uj cellat a sorhoz, es visszater az uj cellaval.
+ * 
+ * @param {string} content a cella tartalma
+ * @param {HTMLDivElement} parent a sor amihez hozzafuzom
+ * 
+ * @returns {HTMLSpanElement}
+ */
+function createCell(content, parent){ // definialok egy uj fuggvenyt a cella letrehozasahoz
+    /**
+     * @type {HTMLSpanElement} a letrehozott span elem
+     */
+    const newCell = document.createElement('span'); // letrehozok egy spant
+    parent.appendChild(newCell); // a sorhoz csatolom
+    newCell.innerText = content; // beallitom az uj cellanak a tartalmat
+    return newCell; // visszaterek a letrehozott uj cellaval (rowspanhoz kellene)
 }
