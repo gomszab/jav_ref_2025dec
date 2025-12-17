@@ -21,32 +21,7 @@ simplebutton.addEventListener('click', function(){ // regisztralok egy esemenyke
      */
     const tbody = document.getElementById('tablebody') // elkerem a tablazat torzset    
 
-    /**
-     * @type {HTMLDivElement} a tablazatunk egy sora
-     */
-    const row = document.createElement('div') // letrehozok egy divet a sornak
-    tbody.appendChild(row); // hozzacsatolom a tablazat torzsehez
-
-    /**
-     * @type {HTMLSpanElement} a tablazatunk egy soranak elso cellaja
-     */
-    const cell1 = document.createElement('span'); // letrehozok egy span-t az elso cellanak
-    row.appendChild(cell1); // hozzacsatolom a sor divjehez
-    cell1.innerText = newRow.where; // beallitom tartalomnak az aktualis elem where tulajdonsaganak erteket
-
-    /**
-     * @type {HTMLSpanElement} a tablazatunk egy soranak masodik cellaja
-     */
-    const cell2 = document.createElement('span'); // letrehozok egy span-t az masodik cellanak
-    row.appendChild(cell2); // hozzacsatolom a sor divjehez
-    cell2.innerText = newRow.what1; // beallitom tartalomnak az aktualis elem what1 tulajdonsaganak erteket
-
-    /**
-     * @type {HTMLSpanElement} a tablazatunk egy soranak harmadik cellaja
-     */
-    const cell3 = document.createElement('span'); // letrehozok egy span-t a harmadik cellanak
-    row.appendChild(cell3); // hozzacsatolom a sor divjehez
-    cell3.innerText = newRow.example1; // beallitom tartalomnak az aktualis elem example1 tulajdonsaganak erteket
+    newRowAppend(newRow, tbody);// meghivom a sor hozzafuzest
 });
 
 /**
@@ -70,6 +45,22 @@ doubleButton.addEventListener('click', function(){ // gomb esemenyere click esem
      */
     const tbody = document.getElementById('tablebody') // elkerem a tablazat torzset  
 
+
+    newRowAppend(newRow, tbody); // meghivom a sor hozzafuzest
+        
+})
+
+/**
+ * 
+ * Hozzafuz uj sorokat az objektum alapjan a tablazathoz
+ * 
+ * @param {DataType} newRow a hozzafuzendo sor adatai
+ * @param {HTMLDivElement} tbody a tablazat torzse
+ * 
+ * @returns {void}
+ */
+function newRowAppend(newRow, tbody){ // definialom a fuggvenyt ami hozzafuz uj sorokat a tablazathoz
+
     /**
      * @type {HTMLDivElement} a tablazatunk egy sora
      */
@@ -81,41 +72,44 @@ doubleButton.addEventListener('click', function(){ // gomb esemenyere click esem
      */
     const cell1 = document.createElement('span'); // letrehozok egy span-t az elso cellanak
     row.appendChild(cell1); // hozzacsatolom a sor divjehez
-    cell1.innerText = newRow.where; // beallitom tartalomnak az aktualis elem where tulajdonsaganak erteket
+    cell1.innerText = newRow.where; // beallitom tartalomnak az uj elem where tulajdonsaganak erteket
 
     /**
      * @type {HTMLSpanElement} a tablazatunk egy soranak masodik cellaja
      */
     const cell2 = document.createElement('span'); // letrehozok egy span-t az masodik cellanak
     row.appendChild(cell2); // hozzacsatolom a sor divjehez
-    cell2.innerText = newRow.what1; // beallitom tartalomnak az aktualis elem what1 tulajdonsaganak erteket
+    cell2.innerText = newRow.what1; // beallitom tartalomnak az uj elem what1 tulajdonsaganak erteket
 
     /**
      * @type {HTMLSpanElement} a tablazatunk egy soranak harmadik cellaja
      */
     const cell3 = document.createElement('span'); // letrehozok egy span-t a harmadik cellanak
     row.appendChild(cell3); // hozzacsatolom a sor divjehez
-    cell3.innerText = newRow.example1; // beallitom tartalomnak az aktualis elem example1 tulajdonsaganak erteket
+    cell3.innerText = newRow.example1; // beallitom tartalomnak az uj elem example1 tulajdonsaganak erteket
 
-    // rowspan allitas helye
-    /**
-     * @type {HTMLDivElement} a masodik sora az aktualis elemnek
-     */
-    const row2 = document.createElement('div') // letrehozok egy divet
-    tbody.appendChild(row2); // hozzacsatolom tbodyhoz
+    if(newRow.what2 && newRow.example2){ // vizsgalom, hogy a newRow objektum what2 es example2 tulajdonsaga definialva van-e
+         // rowspan allitas helye
+        /**
+         * @type {HTMLDivElement} a masodik sora az aktualis elemnek
+         */
+        const row2 = document.createElement('div') // letrehozok egy divet
+        tbody.appendChild(row2); // hozzacsatolom tbodyhoz
 
-    /**
-     * @type {HTMLSpanElement} a masodik sor elso cellaja
-     */
-    const cell4 = document.createElement('span'); // letrehozok egy spant
-    row2.appendChild(cell4); // a sorhoz csatolom
-    cell4.innerText = newRow.what2; // beallitom az aktualis elem what2 tulajdonsagat
+        /**
+         * @type {HTMLSpanElement} a masodik sor elso cellaja
+         */
+        const cell4 = document.createElement('span'); // letrehozok egy spant
+        row2.appendChild(cell4); // a sorhoz csatolom
+        cell4.innerText = newRow.what2; // beallitom az uj elem what2 tulajdonsagat
 
-    /**
-     * @type {HTMLSpanElement} a masodik sor masodik cellaja
-     */
-    const cell5 = document.createElement('span'); // letrehozok egy spant
-    row2.appendChild(cell5); // a sorhoz csatolom
-    cell5.innerText = newRow.example2; // beallitom az aktualis elem example2 tulajdonsagat
-        
-})
+        /**
+         * @type {HTMLSpanElement} a masodik sor masodik cellaja
+         */
+        const cell5 = document.createElement('span'); // letrehozok egy spant
+        row2.appendChild(cell5); // a sorhoz csatolom
+        cell5.innerText = newRow.example2; // beallitom az uj elem example2 tulajdonsagat
+    }
+   
+
+}
