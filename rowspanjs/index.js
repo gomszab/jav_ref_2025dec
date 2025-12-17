@@ -27,9 +27,31 @@ const dataArray = [ // tomb definialasa
 
 
 // A string konkatenaciora olyan szintaxist hasznalsz amilyet akarsz
-console.log(`${headerList[0]} | ${headerList[0]} | ${headerList[0]} |`); // Kiirom konzolra a tablazat fejlecet
-console.log(`${dataArray[0].where} | ${dataArray[0].what1} | ${dataArray[0].example1} |`) // Kiirom konzolra a tablazat 1. sorat
-console.log(` |_ | ${dataArray[0].what2} | ${dataArray[0].example2} |`) // Kiirom konzolra a tablazat 2. sorat
-console.log(`${dataArray[1].where} | ${dataArray[1].what1} | ${dataArray[1].example1} |`) // Kiirom konzolra a tablazat 3. sorat
-console.log(`${dataArray[2].where} | ${dataArray[2].what1} | ${dataArray[2].example1} |`) // Kiirom konzolra a tablazat 4. sorat
-console.log(` |_ | ${dataArray[2].what2} | ${dataArray[2].example2} |`) // Kiirom konzolra a tablazat 5. sorat
+console.log(`${headerList[0]} | ${headerList[1]} | ${headerList[2]} |`); // Kiirom konzolra a tablazat fejlecet
+
+/**
+ * @type {string} Athen sorait tartalmazza
+ */
+let athenRowContent = `${dataArray[0].where}    | ${dataArray[0].what1}    | ${dataArray[0].example1}    |` // szimplasor osszeallitasa
+if(dataArray[0].what2 && dataArray[0].example2){ // vizsgaljuk what2 es example2 definialva van-e
+    athenRowContent += `\n  |_  | ${dataArray[0].what2}    | ${dataArray[0].example2}` // Ha definialva van a \n segitsegevel uj sorba kiirjuk azokat is
+}
+console.log(athenRowContent) // kiirjuk a 2 soros stringet
+
+/**
+ * @type {string} Egyiptom sorat tartalmazza
+ */
+let egyiptomRowContent = `${dataArray[1].where}    | ${dataArray[1].what1}    | ${dataArray[1].example1}    |` // szimplasor osszeallitasa
+if(dataArray[1].what2 && dataArray[1].example2){ // vizsgaljuk what2 es example2 definialva van-e
+    egyiptomRowContent += `\n  |_  | ${dataArray[1].what2}    | ${dataArray[1].example2}` // Ha definialva van a \n segitsegevel uj sorba kiirjuk azokat is
+}
+console.log(egyiptomRowContent) // kiirjuk a 2 soros stringet
+
+/**
+ * @type {string} Sparta sorait tartalmazza
+ */
+let spartaRowContent = `${dataArray[2].where}    | ${dataArray[2].what1}    | ${dataArray[2].example1}    |` // szimplasor osszeallitasa
+if(dataArray[2].what2 && dataArray[2].example2){ // vizsgaljuk what2 es example2 definialva van-e
+    spartaRowContent += `\n  |_  | ${dataArray[2].what2}    | ${dataArray[2].example2}` // Ha definialva van a \n segitsegevel uj sorba kiirjuk azokat is
+}
+console.log(spartaRowContent) // kiirjuk a 2 soros stringet
