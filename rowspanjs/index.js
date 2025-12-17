@@ -45,7 +45,7 @@ const telepSparta = { // objektum definialisa spartanak
 // A string konkatenaciora olyan szintaxist hasznalsz amilyet akarsz
 console.log(`${headTelepules} | ${headAgazat} | ${headPelda} |`); // Kiirom konzolra a tablazat fejlecet
 console.log(`${telepAthen.where} | ${telepAthen.what1} | ${telepAthen.example1} |`) // Kiirom konzolra a tablazat 1. sorat
-console.log(`${telepAthen.where} | ${telepAthen.what2} | ${telepAthen.example2} |`) // Kiirom konzolra a tablazat 2. sorat
+console.log(` |_ | ${telepAthen.what2} | ${telepAthen.example2} |`) // Kiirom konzolra a tablazat 2. sorat
 console.log(`${telepEgyiptom.where} | ${telepEgyiptom.what1} | ${telepEgyiptom.example1} |`) // Kiirom konzolra a tablazat 3. sorat
 console.log(`${telepSparta.where} | ${telepSparta.what1} | ${telepSparta.example1} |`) // Kiirom konzolra a tablazat 4. sorat
-console.log(`${telepSparta.where} | ${telepSparta.what2} | ${telepSparta.example2} |`) // Kiirom konzolra a tablazat 5. sorat
+console.log(` |_ | ${telepSparta.what2} | ${telepSparta.example2} |`) // Kiirom konzolra a tablazat 5. sorat
