@@ -12,77 +12,40 @@ const headAgazat = "Ágazat" // valtozo deklaralasa a fejlec masodik cellajanak
 const headPelda = "Példa" // valtozo deklaralasa a fejlec harmadik cellajanak
 
 /**
- * @type {string} Az elso sor elso oszlop ertekenek: Athén
+ * @type {{where: string, what1: string, example1: string, what2?:string, example2?:string}} Athenhoz tartozo tulajdonsagok
  */
-const rowFirstAthenTelep = "Athén" // valtozo deklaralasa Athen elso soranak elso cellajara
-/**
- * @type {string} Az elso sor masodik oszlop ertekenek: politika
- */
-const rowFristAthencellAgazat = "politika" // valtozo deklaralasa Athen elso soranak masodik cellajara
-/**
- * @type {string} Az elso sor harmadik oszlop ertekenek: demokrácia
- */
-const rowFristAthencellPelda = "demokrácia" // valtozo deklaralasa Athen elso soranak harmadik cellajara
+const telepAthen = { // objektum definialisa athennak
+    where: 'Athen', // telepulest tartalmazo tulajdonsag beallitasa
+    what1: 'politika', // agazat beallitasa
+    example1: 'demokrácia', // pelda beallitasa
+    what2: 'tudomány', // masik agazat beallitasa
+    example2: 'filozófia' // masik agazathoz tartozo pelda beallitasa
+}
 
 /**
- * @type {string} A masodik sor elso oszlop ertekenek: Athén
+ * @type {{where: string, what1: string, example1: string, what2?:string, example2?:string}} Egyiptomhoz tartozo tulajdonsagok
  */
-const rowSecondAthenTelep = "Athén" // valtozo deklaralasa Athen masodik soranak elso cellajara
+const telepEgyiptom = { // objektum definialisa egyiptomnak
+    where: 'Egyiptom', // telepulest tartalmazo tulajdonsag beallitasa
+    what1: 'mezőgazdaság', // agazat beallitasa
+    example1: 'gátak', // pelda beallitasa
+}
 /**
- * @type {string} A masodik sor masodik oszlop ertekenek: tudomány
+ * @type {{where: string, what1: string, example1: string, what2?:string, example2?:string}} Spartahoz tartozo tulajdonsagok
  */
-const rowSecondAthenAgazat = "tudomány" // valtozo deklaralasa Athen masodik soranak masodik cellajara
-/**
- * @type {string} A masodik sor harmadik oszlop ertekenek: filozófia
- */
-const rowSecondAthenPelda = "filozófia" // valtozo deklaralasa Athen masodik soranak harmadik cellajara
-
-/**
- * @type {string} A harmadik sor elso oszlop ertekenek: Egyiptom
- */
-const rowEgyiptomTelep = "Egyiptom" // valtozo deklaralasa Egyiptom soranak elso cellajara
-/**
- * @type {string} A harmadik sor masodik oszlop ertekenek: mezőgazdaság
- */
-const rowEgyiptomAgazat = "mezőgazdaság" // valtozo deklaralasa Egyiptom soranak masodik cellajara
-/**
- * @type {string} A harmadik sor harmadik oszlop ertekenek: csatornák
- */
-const rowEgyiptomPelda = "csatornák" // valtozo deklaralasa Egyiptom soranak harmadik cellajara
-
-
-/**
- * @type {string} A negyedik sor elso oszlop ertekenek: Spárta
- */
-const rowFirstSpartaTelep = "Spárta" // valtozo deklaralasa Sparta elso soranak elso cellajara
-/**
- * @type {string} A negyedik sor masodik oszlop ertekenek: neveléstudomány
- */
-const rowFirstSpartaAgazat = "neveléstudomány" // valtozo deklaralasa Sparta elso soranak masodik cellajara
-/**
- * @type {string} A negyedik sor harmadik oszlop ertekenek: agogé
- */
-const rowFirstSpartaPelda = "agogé" // valtozo deklaralasa Sparta elso soranak harmadik cellajara
-
-/**
- * @type {string} Az otodik sor elso oszlop ertekenek: Spárta
- */
-const rowSecondSpartaTelep = "Spárta" // valtozo deklaralasa Sparta masodik soranak elso cellajara
-/**
- * @type {string} Az otodik sor masodik oszlop ertekenek: harcászat
- */
-const rowSecondSpartaAgazat = "harcászat" // valtozo deklaralasa Sparta masodik soranak masodik cellajara
-/**
- * @type {string} Az otodik sor harmadik oszlop ertekenek: hoplita
- */
-const rowSecondSpartaPelda = "hoplita" // valtozo deklaralasa Sparta masodik soranak harmadik cellajara
-
+const telepSparta = { // objektum definialisa spartanak
+    where: 'Spárta', // telepulest tartalmazo tulajdonsag beallitasa
+    what1: 'neveléstudomány',// agazat beallitasa
+    example1: 'agogé', // pelda beallitasa
+    what2: 'harcászat',  // masik agazat beallitasa
+    example2: 'hoplita' // masik agazathoz tartozo pelda beallitasa
+}
 
 
 // A string konkatenaciora olyan szintaxist hasznalsz amilyet akarsz
 console.log(`${headTelepules} | ${headAgazat} | ${headPelda} |`); // Kiirom konzolra a tablazat fejlecet
-console.log(`${rowFirstAthenTelep} | ${rowFristAthencellAgazat} | ${rowFristAthencellPelda} |`) // Kiirom konzolra a tablazat 1. sorat
-console.log(`${rowSecondAthenTelep} | ${rowSecondAthenAgazat} | ${rowSecondAthenPelda} |`) // Kiirom konzolra a tablazat 2. sorat
-console.log(`${rowEgyiptomTelep} | ${rowEgyiptomAgazat} | ${rowEgyiptomPelda} |`) // Kiirom konzolra a tablazat 3. sorat
-console.log(`${rowFirstSpartaTelep} | ${rowFirstSpartaAgazat} | ${rowFirstSpartaPelda} |`) // Kiirom konzolra a tablazat 4. sorat
-console.log(`${rowSecondSpartaTelep} | ${rowSecondSpartaAgazat} | ${rowSecondSpartaPelda} |`) // Kiirom konzolra a tablazat 5. sorat
+console.log(`${telepAthen.where} | ${telepAthen.what1} | ${telepAthen.example1} |`) // Kiirom konzolra a tablazat 1. sorat
+console.log(`${telepAthen.where} | ${telepAthen.what2} | ${telepAthen.example2} |`) // Kiirom konzolra a tablazat 2. sorat
+console.log(`${telepEgyiptom.where} | ${telepEgyiptom.what1} | ${telepEgyiptom.example1} |`) // Kiirom konzolra a tablazat 3. sorat
+console.log(`${telepSparta.where} | ${telepSparta.what1} | ${telepSparta.example1} |`) // Kiirom konzolra a tablazat 4. sorat
+console.log(`${telepSparta.where} | ${telepSparta.what2} | ${telepSparta.example2} |`) // Kiirom konzolra a tablazat 5. sorat
