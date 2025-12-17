@@ -46,7 +46,7 @@ function renderTable(arr){ // definialom a rendertable fuggvenyt 1 parameterrel
          */
         let currentRow = `${arr[key].where}    | ${arr[key].what1}    | ${arr[key].example1}    |` // szimplasor osszeallitasa
         if(arr[key].what2 && arr[key].example2){ // vizsgaljuk what2 es example2 definialva van-e
-            currentRow += `\n  |_  | ${arr[key].what2}    | ${arr[key].example2}` // Ha definialva van a \n segitsegevel uj sorba kiirjuk azokat is
+            currentRow += `\n  |_  | ${arr[key].what2}    | ${arr[key].example2} |` // Ha definialva van a \n segitsegevel uj sorba kiirjuk azokat is
         }
         console.log(currentRow) // kiirjuk a 2 soros stringet
     }
@@ -70,6 +70,30 @@ simpleButton.addEventListener('click', function(){ // gomb esemenyere click esem
         where: 'TestWhere', // where tulajdonsag megadasa
         what1: 'TesztWhat', // what1 tulajdonsag megadasa
         example1: 'TesztExample1' // example1 tulajdonsag megadasa
+    }
+    dataArray.push(newRow); // tablazathoz hozzaadjuk az uj objektumot
+    renderTable(dataArray); // meghivjuk a tablazatot kiirato fuggvenyt
+})
+
+/**
+ * @type {HTMLButtonElement} a gomb ami egy egyszeru sort hozzaad
+ */
+const doubleButton = document.createElement('button'); // gomb letrahozasa
+doubleButton.innerText = 'Dupla sor'; // gomb feliratanak beallitasa
+document.body.appendChild(doubleButton); // gomb hozzacsatolasa az oldalhoz
+doubleButton.addEventListener('click', function(){ // gomb esemenyere click esemenyere valo feliratkozas
+    console.log('##########################################') // elvalaszto kiiratasa
+    console.log('--------------- Clickeles utan -----------') // elvalaszto kiiratasa
+    console.log('##########################################') // elvalaszto kiiratasa
+    /**
+     * @type {DataType} az uj sor objektuma
+     */
+    const newRow = { // objektum definialasa
+        where: 'TestWhere', // where tulajdonsag megadasa
+        what1: 'TesztWhat', // what1 tulajdonsag megadasa
+        example1: 'TesztExample1', // example1 tulajdonsag megadasa
+        what2: 'TesztWhat2', // what2 tulajdonsag megadasa
+        example2: 'TesztExample2' // example2 tulajdonsag megadasa
     }
     dataArray.push(newRow); // tablazathoz hozzaadjuk az uj objektumot
     renderTable(dataArray); // meghivjuk a tablazatot kiirato fuggvenyt
