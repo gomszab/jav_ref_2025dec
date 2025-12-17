@@ -52,3 +52,25 @@ function renderTable(arr){ // definialom a rendertable fuggvenyt 1 parameterrel
     }
 }
 renderTable(dataArray); // meghivom a fuggvenyt ami kiirja a tablazatot consolera
+
+/**
+ * @type {HTMLButtonElement} a gomb ami egy egyszeru sort hozzaad
+ */
+const simpleButton = document.createElement('button'); // gomb letrahozasa
+simpleButton.innerText = 'Szimpla sor'; // gomb feliratanak beallitasa
+document.body.appendChild(simpleButton); // gomb hozzacsatolasa az oldalhoz
+simpleButton.addEventListener('click', function(){ // gomb esemenyere click esemenyere valo feliratkozas
+    console.log('##########################################') // elvalaszto kiiratasa
+    console.log('--------------- Clickeles utan -----------') // elvalaszto kiiratasa
+    console.log('##########################################') // elvalaszto kiiratasa
+    /**
+     * @type {DataType} az uj sor objektuma
+     */
+    const newRow = { // objektum definialasa
+        where: 'TestWhere', // where tulajdonsag megadasa
+        what1: 'TesztWhat', // what1 tulajdonsag megadasa
+        example1: 'TesztExample1' // example1 tulajdonsag megadasa
+    }
+    dataArray.push(newRow); // tablazathoz hozzaadjuk az uj objektumot
+    renderTable(dataArray); // meghivjuk a tablazatot kiirato fuggvenyt
+})
