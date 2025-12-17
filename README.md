@@ -95,15 +95,16 @@ Feladat 15: Vond össze a validációt a javascript és a html form között
 | 14. | console row tablazat | console.log | Kiírod konzolra a táblázatot | |
 | 15. | console row valtozo bev | változó deklarálás | Kiírod konzolra a táblázatot | |
 | 16. | console row object bev | változó lehet objektum is | Kiírod konzolra a tablazatot | |
-| 17. | console row array bev | változó lehet tömb is | Kiírod konzolra a táblázatot | |
-| 18. | console row elagazas | elágazást lehet használni egy adott sor kiírására | Kiírod konzolra a táblázatot | |
-| 19. | console row ciklus | ciklust lehet használni a táblázat kiírására | Kiírod konzolra a táblázatot | |
-| 20. | console row fuggveny | létrehozol egy függvényt, és meghívod | Kiírod konzolra a táblázatot | |
-| 21. | console row simple gomb | létrehozol egy gombot és hozzáadod a htmlhez | Kiírod konzolra a táblázatot, van egy gomb a htmlen, amire ha clickelsz, akkor hozzáad egy új objektumot tömbhöz, és kiírja a frissített táblázatot | |
-| 22. | console row double gomb | létrehozol egy újabb gombot és hozzáadod a htmlhez | Kiírod konzolra a táblázatot, van két gomb a htmlen. Ha az újonnan létrehozottra klikkelsz, akkor hozzáad egy új objektumot a tömbhöz, és kiírja a frissített táblázatot | |
-| 23. | table row | A konzolos kiírás "celláit és sorait" lecseréled createElementekre  | Renderelsz egy táblázatot, a gombok a táblázatot frissítik| |
-| 24. | table row header render | a header render függvényt létrehozod  | A táblázat fejléce rendesen megjelenik | |
-| 25. | table row render update | eddig globális változó volt a render függvénybe, ehelyett bevezetsz egy paramétert a függvénybe a tbody-nak, és átvezeted a függvényhívásoknál is (gombok eseménykezelője, és global).| Nem változik a működés | |
+| 17. | console row merge cell  | az összevont celláknál bevezetsz egy `|_` jelet | Kiírod konzolra a tablazatot | |
+| 18. | console row array bev | változó lehet tömb is | Kiírod konzolra a táblázatot | |
+| 19. | console row elagazas | elágazást lehet használni egy adott sor kiírására | Kiírod konzolra a táblázatot | |
+| 20. | console row ciklus | ciklust lehet használni a táblázat kiírására | Kiírod konzolra a táblázatot | |
+| 21. | console row fuggveny | létrehozol egy függvényt, és meghívod | Kiírod konzolra a táblázatot | |
+| 22. | console row simple gomb | létrehozol egy gombot és hozzáadod a htmlhez | Kiírod konzolra a táblázatot, van egy gomb a htmlen, amire ha clickelsz, akkor hozzáad egy új objektumot tömbhöz, és kiírja a frissített táblázatot | |
+| 23. | console row double gomb | létrehozol egy újabb gombot és hozzáadod a htmlhez | Kiírod konzolra a táblázatot, van két gomb a htmlen. Ha az újonnan létrehozottra klikkelsz, akkor hozzáad egy új objektumot a tömbhöz, és kiírja a frissített táblázatot | |
+| 24. | table row | A konzolos kiírás "celláit és sorait" lecseréled createElementekre  | Renderelsz egy táblázatot, a gombok a táblázatot frissítik| |
+| 25. | table row header render | a header render függvényt létrehozod  | A táblázat fejléce rendesen megjelenik | |
+| 26. | table row render update | eddig globális változó volt a render függvénybe, ehelyett bevezetsz egy paramétert a függvénybe a tbody-nak, és átvezeted a függvényhívásoknál is (gombok eseménykezelője, és global).| Nem változik a működés | |
 
 Tier Level B
 Feladat 1: Hozz létre egy consolecol mappát, és implementálj egy olyan alkalmazást, amely console-on megjelenít egy "colspanos táblázatot". Fűzz hozzá a html oldalhoz két gombot, amelyek hozzáfűznek egy új objektumot a tömbhöz és újra megjelenítik console-on a táblázatot. 
