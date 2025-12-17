@@ -41,26 +41,24 @@ const tableHead = document.createElement('div'); // letrehozok egy divet a fejle
 table.appendChild(tableHead); // hozzacsatolom a tabla divhez
 
 /**
- * @type {HTMLSpanElement} a fejlec elso span eleme
+ * 
+ * Rendereli egy tomb alapjan a fejlecet es hozzacsatolja a headerhez
+ * 
+ * @param {string[]} hList a fejlec tartalmat tartalmazo tomb 
+ * @param {HTMLDivElement} header a header
+ * @returns {void}
  */
-const headCellTelep = document.createElement('span'); // letrehozok egy spant
-tableHead.appendChild(headCellTelep); // hozzacsatolom a fejlechez
-headCellTelep.innerText = headerList[0]; // beallitom a tartalmanak a header elso elemet
-
-/**
- * @type {HTMLSpanElement} a fejlec masodik span eleme
- */
-const headCellAgazat = document.createElement('span'); // letrehozok egy spant
-tableHead.appendChild(headCellAgazat); // hozzacsatolom a fejlechez
-headCellAgazat.innerText = headerList[1]; // beallitom a tartalmanak a header masodik elemet
-
-/**
- * @type {HTMLSpanElement} a fejlec harmadik span eleme
- */
-const headCellPelda = document.createElement('span'); // letrehozok egy spant
-tableHead.appendChild(headCellPelda); // hozzacsatolom a fejlechez
-headCellPelda.innerText = headerList[2]; // beallitom a tartalmanak a header harmadik elemet
-
+function renderHeader(hList, header){ // definialom a renderHeader fuggvenyt
+    for(const head of hList){ // vegigiteralok a fuggveny elso bemeneti parameteren
+        /**
+         * @type {HTMLSpanElement} az aktualis fejlec elem
+         */
+        const headCellTelep = document.createElement('span'); // letrehozok egy spant
+        header.appendChild(headCellTelep); // hozzacsatolom a fejlechez
+        headCellTelep.innerText = head; // beallitom a tartalmanak a headerlist aktualis elemet
+    }
+}
+renderHeader(headerList, tableHead); // kirenderelem a fejlecet a fuggveny meghivasanak segitsegevel
 /**
  * @type {HTMLDivElement} egy div a tablazat torzsenek
  */
