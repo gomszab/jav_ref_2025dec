@@ -70,18 +70,19 @@ table.appendChild(tableBody); // hozzacsatolom a tablazathoz
  * kiirja konzolra a tablazatot
  * 
  * @param {DataType[]} arr az adattomb ami a tablazat torzst tartalmazza
+ * @param {HTMLDivElement} tbody a tablazat torzse 
  * 
  * @returns {void}
  */
-function renderTable(arr){ // definialom a rendertable fuggvenyt 1 parameterrel
-    tableBody.innerHTML = ''; // uritem a tablebody div tartalmat
+function renderTable(arr, tbody){ // definialom a rendertable fuggvenyt 1 parameterrel
+    tbody.innerHTML = ''; // uritem a tablebody div tartalmat
     for(const key in arr){ // vegigiteralok a dataarray tulajdonsagain, amik jelen esetben az indexek
         
          /**
          * @type {HTMLDivElement} a tablazatunk egy sora
          */
         const row = document.createElement('div') // letrehozok egy divet a sornak
-        tableBody.appendChild(row); // hozzacsatolom a tablazat torzsehez
+        tbody.appendChild(row); // hozzacsatolom a tablazat torzsehez
 
         /**
          * @type {HTMLSpanElement} a tablazatunk egy soranak elso cellaja
@@ -110,7 +111,7 @@ function renderTable(arr){ // definialom a rendertable fuggvenyt 1 parameterrel
              * @type {HTMLDivElement} a masodik sora az aktualis elemnek
              */
            const row2 = document.createElement('div') // letrehozok egy divet
-           tableBody.appendChild(row2); // hozzacsatolom tbodyhoz
+           tbody.appendChild(row2); // hozzacsatolom tbodyhoz
 
            /**
              * @type {HTMLSpanElement} a masodik sor elso cellaja
@@ -128,7 +129,7 @@ function renderTable(arr){ // definialom a rendertable fuggvenyt 1 parameterrel
         }
     }
 }
-renderTable(dataArray); // meghivom a fuggvenyt ami kiirja a tablazatot consolera
+renderTable(dataArray, tableBody); // meghivom a fuggvenyt ami kiirja a tablazatot consolera
 
 /**
  * @type {HTMLButtonElement} a gomb ami egy egyszeru sort hozzaad
@@ -149,7 +150,7 @@ simpleButton.addEventListener('click', function(){ // gomb esemenyere click esem
         example1: 'TesztExample1' // example1 tulajdonsag megadasa
     }
     dataArray.push(newRow); // tablazathoz hozzaadjuk az uj objektumot
-    renderTable(dataArray); // meghivjuk a tablazatot kiirato fuggvenyt
+    renderTable(dataArray, tableBody); // meghivjuk a tablazatot kiirato fuggvenyt
 })
 
 /**
@@ -173,5 +174,5 @@ doubleButton.addEventListener('click', function(){ // gomb esemenyere click esem
         example2: 'TesztExample2' // example2 tulajdonsag megadasa
     }
     dataArray.push(newRow); // tablazathoz hozzaadjuk az uj objektumot
-    renderTable(dataArray); // meghivjuk a tablazatot kiirato fuggvenyt
+    renderTable(dataArray, tableBody); // meghivjuk a tablazatot kiirato fuggvenyt
 })
