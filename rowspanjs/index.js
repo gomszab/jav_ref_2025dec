@@ -29,6 +29,43 @@ const dataArray = [ // tomb definialasa
         example2: 'hoplita' // masik agazathoz tartozo pelda beallitasa
     }]
 
+/**
+ * @type {HTMLDivElement} a megjelenitendo tablazatunk
+ */
+const table = document.createElement('div'); // letrehozok egy divet
+document.body.appendChild(table); // hozzacsatolom a bodyhoz
+/**
+ * @type {HTMLDivElement} a tablazatunk fejlece
+ */
+const tableHead = document.createElement('div'); // letrehozok egy divet a fejlecnek
+table.appendChild(tableHead); // hozzacsatolom a tabla divhez
+
+/**
+ * @type {HTMLSpanElement} a fejlec elso span eleme
+ */
+const headCellTelep = document.createElement('span'); // letrehozok egy spant
+tableHead.appendChild(headCellTelep); // hozzacsatolom a fejlechez
+headCellTelep.innerText = headerList[0]; // beallitom a tartalmanak a header elso elemet
+
+/**
+ * @type {HTMLSpanElement} a fejlec masodik span eleme
+ */
+const headCellAgazat = document.createElement('span'); // letrehozok egy spant
+tableHead.appendChild(headCellAgazat); // hozzacsatolom a fejlechez
+headCellAgazat.innerText = headerList[1]; // beallitom a tartalmanak a header masodik elemet
+
+/**
+ * @type {HTMLSpanElement} a fejlec harmadik span eleme
+ */
+const headCellPelda = document.createElement('span'); // letrehozok egy spant
+tableHead.appendChild(headCellPelda); // hozzacsatolom a fejlechez
+headCellPelda.innerText = headerList[2]; // beallitom a tartalmanak a header harmadik elemet
+
+/**
+ * @type {HTMLDivElement} egy div a tablazat torzsenek
+ */
+const tableBody = document.createElement('div'); // letrehozok egy divet
+table.appendChild(tableBody); // hozzacsatolom a tablazathoz
 
 /**
  * 
@@ -39,16 +76,58 @@ const dataArray = [ // tomb definialasa
  * @returns {void}
  */
 function renderTable(arr){ // definialom a rendertable fuggvenyt 1 parameterrel
-    console.log(`${headerList[0]} | ${headerList[1]} | ${headerList[2]} |`); // Kiirom konzolra a tablazat fejlecet
+    tableBody.innerHTML = ''; // uritem a tablebody div tartalmat
     for(const key in arr){ // vegigiteralok a dataarray tulajdonsagain, amik jelen esetben az indexek
-        /**
-         * @type {string} tartalmazza az aktualis sort
+        
+         /**
+         * @type {HTMLDivElement} a tablazatunk egy sora
          */
-        let currentRow = `${arr[key].where}    | ${arr[key].what1}    | ${arr[key].example1}    |` // szimplasor osszeallitasa
+        const row = document.createElement('div') // letrehozok egy divet a sornak
+        tableBody.appendChild(row); // hozzacsatolom a tablazat torzsehez
+
+        /**
+         * @type {HTMLSpanElement} a tablazatunk egy soranak elso cellaja
+         */
+        const cell1 = document.createElement('span'); // letrehozok egy span-t az elso cellanak
+        row.appendChild(cell1); // hozzacsatolom a sor divjehez
+        cell1.innerText = arr[key].where; // beallitom tartalomnak az aktualis elem where tulajdonsaganak erteket
+
+        /**
+         * @type {HTMLSpanElement} a tablazatunk egy soranak masodik cellaja
+         */
+        const cell2 = document.createElement('span'); // letrehozok egy span-t az masodik cellanak
+        row.appendChild(cell2); // hozzacsatolom a sor divjehez
+        cell2.innerText = arr[key].what1; // beallitom tartalomnak az aktualis elem what1 tulajdonsaganak erteket
+
+        /**
+         * @type {HTMLSpanElement} a tablazatunk egy soranak harmadik cellaja
+         */
+        const cell3 = document.createElement('span'); // letrehozok egy span-t a harmadik cellanak
+        row.appendChild(cell3); // hozzacsatolom a sor divjehez
+        cell3.innerText = arr[key].example1; // beallitom tartalomnak az aktualis elem example1 tulajdonsaganak erteket
+
         if(arr[key].what2 && arr[key].example2){ // vizsgaljuk what2 es example2 definialva van-e
-            currentRow += `\n  |_  | ${arr[key].what2}    | ${arr[key].example2} |` // Ha definialva van a \n segitsegevel uj sorba kiirjuk azokat is
+            // rowspan allitas helye
+            /**
+             * @type {HTMLDivElement} a masodik sora az aktualis elemnek
+             */
+           const row2 = document.createElement('div') // letrehozok egy divet
+           tableBody.appendChild(row2); // hozzacsatolom tbodyhoz
+
+           /**
+             * @type {HTMLSpanElement} a masodik sor elso cellaja
+             */
+           const cell4 = document.createElement('span'); // letrehozok egy spant
+           row2.appendChild(cell4); // a sorhoz csatolom
+           cell4.innerText = arr[key].what2; // beallitom az aktualis elem what2 tulajdonsagat
+
+           /**
+             * @type {HTMLSpanElement} a masodik sor masodik cellaja
+             */
+           const cell5 = document.createElement('span'); // letrehozok egy spant
+           row2.appendChild(cell5); // a sorhoz csatolom
+           cell5.innerText = arr[key].example2; // beallitom az aktualis elem example2 tulajdonsagat
         }
-        console.log(currentRow) // kiirjuk a 2 soros stringet
     }
 }
 renderTable(dataArray); // meghivom a fuggvenyt ami kiirja a tablazatot consolera
