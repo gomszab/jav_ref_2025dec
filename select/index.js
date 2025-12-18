@@ -34,6 +34,7 @@ const dataArray = [ // tomb definialasa
  */
 const sectionDiv = document.createElement('div'); // szekcio div definialasa
 sectionDiv.id = 'jssection'; // szekcio divnek adunk egy id-t
+sectionDiv.classList.add('hide'); // hide osztaly hozzaadasa a css listahoz
 document.body.appendChild(sectionDiv) // szekcio divet hozzacsatoljuk a bodyhoz
 
 /**
@@ -254,3 +255,31 @@ doubleButtonHtml.addEventListener('click', function(){ // gomb esemenyere click 
     newRowAppend(newRow, tbody); // meghivom a sor hozzafuzest
         
 })
+
+//################### select esemenykezeles ###############
+/**
+ * @type {HTMLSelectElement} az oldalrol leszedett select element
+ */
+const select = document.getElementById('tableselector'); // lekerdezzuk a tableselector id-val rendelkezo elemet
+select.addEventListener('change', function(e){ // regisztralunk egy esemenykezelot a change esemenyre
+
+    /**
+     * @type {HTMLSelectElement} az esemeny targetjebol kiszedet select element
+     */
+    const target = e.target; // eltaroljuk az esemeny targetjet egy valtozoba
+    /**
+     * @type {HTMLDivElement} a jssection divet tartalmazo valtozo
+     */
+    const jsSection = document.getElementById('jssection'); // lekerjuk a jssectiont id alapjan
+    /**
+     * @type {HTMLDivElement} a htmlsection divet tartalmazo valtozo
+     */
+    const htmlSection = document.getElementById('htmlsection'); // lekerjuk a htmlsectiont id alapjan
+    if (target.value == 'js'){ // vizsgaljuk, hogy a target value tulajdonsaganak erteke js-e 
+        jsSection.classList.remove('hide'); // ha igaz, akkor toroljuk a hide osztalyt a jssectionrol
+        htmlSection.classList.add('hide'); // es hozzaadjuk a hide osztalyt a htmlsectionhoz
+    }else if(target.value == 'html'){ // egyebkent vizsgaljuk hogy a target value tulajdonsaganak erteket html-e
+        jsSection.classList.add('hide'); // ha igaz, akkor hozzaadjuk a hide osztalyt a jssectionhoz
+        htmlSection.classList.remove('hide'); // es toroljuk a hide osztalyt a htmlsectionrol
+    }
+});
