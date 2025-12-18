@@ -30,10 +30,17 @@ const dataArray = [ // tomb definialasa
     }]
 
 /**
+ * @type {HTMLDivElement} az id-val rendelkezo szekcio, amit majd el tudunk rejteni
+ */
+const sectionDiv = document.createElement('div'); // szekcio div definialasa
+sectionDiv.id = 'jssection'; // szekcio divnek adunk egy id-t
+document.body.appendChild(sectionDiv) // szekcio divet hozzacsatoljuk a bodyhoz
+
+/**
  * @type {HTMLDivElement} a megjelenitendo tablazatunk
  */
 const table = document.createElement('div'); // letrehozok egy divet
-document.body.appendChild(table); // hozzacsatolom a bodyhoz
+sectionDiv.appendChild(table); // hozzacsatolom a sectionhoz
 /**
  * @type {HTMLDivElement} a tablazatunk fejlece
  */
@@ -164,7 +171,7 @@ function createCell(content, parent){ // definialok egy uj fuggvenyt a cella let
  */
 const simpleButton = document.createElement('button'); // gomb letrahozasa
 simpleButton.innerText = 'Szimpla sor'; // gomb feliratanak beallitasa
-document.body.appendChild(simpleButton); // gomb hozzacsatolasa az oldalhoz
+sectionDiv.appendChild(simpleButton); // gomb hozzacsatolasa az sectionhoz
 simpleButton.addEventListener('click', function(){ // gomb esemenyere click esemenyere valo feliratkozas
 
     /**
@@ -184,7 +191,7 @@ simpleButton.addEventListener('click', function(){ // gomb esemenyere click esem
  */
 const doubleButton = document.createElement('button'); // gomb letrahozasa
 doubleButton.innerText = 'Dupla sor'; // gomb feliratanak beallitasa
-document.body.appendChild(doubleButton); // gomb hozzacsatolasa az oldalhoz
+sectionDiv.appendChild(doubleButton); // gomb hozzacsatolasa az sectionhoz
 doubleButton.addEventListener('click', function(){ // gomb esemenyere click esemenyere valo feliratkozas
     /**
      * @type {DataType} az uj sor objektuma
