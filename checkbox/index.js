@@ -261,11 +261,24 @@ doubleButtonHtml.addEventListener('click', function(){ // gomb esemenyere click 
  * @type {HTMLInputElement} a checkboxot tartalmazo valtozo
  */
 const checkbox = document.getElementById('tableselector'); // elkerjuk a checkboxot
+handleCheckbox(checkbox); // meghivjuk oldal betoltesekor a checkbox ertekevel a checkboxkezelo functiont, hogy megjelenjen valami
 checkbox.addEventListener('change', function(e){ // definialunk egy esemenykezelot a checkbox change esemenyere
      /**
      * @type {HTMLInputElement} az esemeny target erteke, ami a checkbox
      */
     const target = e.target; // eltaroljuk valtozoban az esemeny target erteket
+    handleCheckbox(target); // meghivjuk a kezelofuggvenyunket a targettel
+    
+})
+
+/**
+ * 
+ * A bemeneti checkbox elem checked tulajdonsaga alapjan rejti el vagy jeleneti meg a jssection/htmlsectiont
+ * 
+ * @param {HTMLInputElement} checkboxinputelement a checkbox elem, amit vizsgalunk
+ * @returns {void}
+ */
+function handleCheckbox(checkboxinputelement){ // definialunk egy segedfuggvenyt a checkbox kezelesere
 
     /**
      * @type {HTMLDivElement} a jssection divet tartalmazo valtozo
@@ -275,11 +288,11 @@ checkbox.addEventListener('change', function(e){ // definialunk egy esemenykezel
      * @type {HTMLDivElement} a htmlsection divet tartalmazo valtozo
      */
     const htmlSection = document.getElementById('htmlsection'); // lekerjuk a htmlsectiont id alapjan 
-    if(target.checked){ // ha be van pipalva
-        jsSection.classList.add('hide'); // akkor hozzaadjuk a hide osztalyt a jssectionhoz
-        htmlSection.classList.remove('hide'); // es toroljuk a hide osztalyt a htmlsectionrol
-     }else{ //egyebkent
-        jsSection.classList.remove('hide'); // ha igaz, akkor toroljuk a hide osztalyt a jssectionrol
-        htmlSection.classList.add('hide'); // es hozzaadjuk a hide osztalyt a htmlsectionhoz
-     }
-})
+    if(checkboxinputelement.checked){ // ha be van pipalva
+       jsSection.classList.add('hide'); // akkor hozzaadjuk a hide osztalyt a jssectionhoz
+       htmlSection.classList.remove('hide'); // es toroljuk a hide osztalyt a htmlsectionrol
+    }else{ //egyebkent
+       jsSection.classList.remove('hide'); // ha igaz, akkor toroljuk a hide osztalyt a jssectionrol
+       htmlSection.classList.add('hide'); // es hozzaadjuk a hide osztalyt a htmlsectionhoz
+    }
+}
