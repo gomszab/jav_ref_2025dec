@@ -1,6 +1,7 @@
 - [Követelmények](#követelmények)
 - [Visszalépés](#visszalépés)
 - [Így használd a referencia repót](#így-használd-a-referencia-repót)
+- [Tesztelés menete (Tier B és Tier C)](#tesztelés-menete-tier-b-és-tier-c)
 - [Beállítások](#beállítások)
 - [Szintlépés](#szintlépés)
 - [Feladatok](#feladatok)
@@ -26,7 +27,7 @@
 
 
 # Követelmények
-- A 4 dolgozatfeladatsort kell megcsinálni, mindegyiket az aktuális tierleveleden. Repó elnevezési utmutató itt
+- Mind a 4 dolgozatfeladatsort kell megcsinálni, mindegyiket az aktuális tierleveleden. Repó elnevezési utmutató [itt](#beállítások)
 - A commit_checker hookot kötelező használni, beállítási útmutató [itt](#beállítások)
 - A kommitokat manuálisan is át fogom nézni
 - Ha kész vagy az elsővel, írj rám Teamsen, átnézem manuálisan a kódodat, és döntök, hogy tudsz-e feljebb menni
@@ -91,6 +92,22 @@ Ekkor add ki a következő parancsot:
 git reset --hard
 ```
 
+# Tesztelés menete (Tier B és Tier C)
+1. Csinálj egy mappát valahol. (ne a repó mappájába!)
+2. Töltsd le a legutóbbi verzióját a [tesztelő alkalmazásnak](https://github.com/gomszab/table_functional_tester/releases/tag/v0.0.6ae)
+3. Másold bele a mappába (ne a meghajtó gyökerébe)
+4. Csinálj egy config.json-t a feladatsor mappába az index.html mellé, és másold be a tartalmát a config.jsonnak, amit a [táblázatban](#beállítások) megtalálsz
+5. git-bash-el navigálj a tablefunctionaltester alkalmazáshoz
+6. Kezd el gépelni a ./table_functional_tester majd tab-al egészítsd ki, tegyél egy aposztrófot és add meg az abszolút elérését az index.html fájlodnak
+(Az első futtatás lassabb lesz, mert letölt egy chrome-ot a háttérben, ezt a program mappája feletti mappában fogod látni headless_chrome néven, ne töröld)
+
+pl.: ``` ./table_functional_tester-windows-latest.exe "..\xx_vilagirodalom\feladatsor\index.html" ``` a konzolon ilyesmit kell keress:
+```
+*********************************************************
+29 tesztből 24 sikeres, 0 sikertelen, 5 kihagyott
+*********************************************************
+```
+ha 0 sikertelen van, akkor miután én is futtattam magamnál, megnézem a tartalmi részt.
 
 
 # Beállítások
