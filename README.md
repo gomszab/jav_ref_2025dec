@@ -1,3 +1,28 @@
+- [Követelmények](#követelmények)
+- [Visszalépés](#visszalépés)
+- [Így használd a referencia repót](#így-használd-a-referencia-repót)
+- [Beállítások](#beállítások)
+- [Szintlépés](#szintlépés)
+- [Feladatok](#feladatok)
+  - [Tier Level A](#tier-level-a)
+    - [Mappastruktúra](#mappastruktúra)
+    - [Feladat 1: Console Colspan (1-9 commit)](#feladat-1-console-colspan-1-9-commit)
+    - [Feladat 2: Table colspan (10-13 commit)](#feladat-2-table-colspan-10-13-commit)
+    - [Feladat 3: Console Rowspan (14-23 commit)](#feladat-3-console-rowspan-14-23-commit)
+    - [Feladat 4: Table Rowspan (24-26 commit)](#feladat-4-table-rowspan-24-26-commit)
+    - [Feladat 5: Table Html colspan (27-31 commit)](#feladat-5-table-html-colspan-27-31-commit)
+    - [Feladat 6: Table Html rowspan (32-36 commit)](#feladat-6-table-html-rowspan-32-36-commit)
+  - [Tier Level B](#tier-level-b)
+    - [Mappastruktúra](#mappastruktúra-1)
+    - [Feladat 1: Feladatsor: A 1. feladat](#feladat-1-feladatsor-a-1-feladat)
+    - [Feladat 2: Select implementalas](#feladat-2-select-implementalas)
+    - [Feladat 3: Checkbox implementalas](#feladat-3-checkbox-implementalas)
+    - [Feladat 4: Feladatsor: A 2. feladat](#feladat-4-feladatsor-a-2-feladat)
+    - [Feladat 5: Feladatsor: A 4-5. feladat](#feladat-5-feladatsor-a-4-5-feladat)
+    - [Feladat 6: Feladatsor: B 1. feladat](#feladat-6-feladatsor-b-1-feladat)
+    - [Feladat 7: Feladatsor: B 2. feladat](#feladat-7-feladatsor-b-2-feladat)
+    - [(opcionális) Feladat 8: Optimalizálás](#opcionális-feladat-8-optimalizálás)
+  - [Tier Level C](#tier-level-c)
 
 
 # Követelmények
@@ -9,7 +34,7 @@
 - Ha bármelyik commitban js syntax error van, akkor újra kell csinálnod az egészet
 - Ha valakivel egyezik méretre és tartalomra a munkád, akkor bukik a javítás, és kapsz egy egyest
 - A commitok szövege adott, commit elött mindig ellenőrízd, hogy az elvárt kimenet van.
-- Ha utólag jössz rá, hogy valamelyik commitban valami hibásan működött, akkor minden utána lévő commitot visszavonsz, kijavítod, és újraírod a dolgot. A visszalépés guide itt, amennyiben ez nem történik meg, és összevissza commitokat látok miután végeztél, akkor újra kell csinálnod az egészet egy új feladatsorral
+- Ha utólag jössz rá, hogy valamelyik commitban valami hibásan működött, akkor minden utána lévő commitot visszavonsz, kijavítod, és újraírod a dolgot. A visszalépés guide [itt](#visszalépés), amennyiben ez nem történik meg, és összevissza commitokat látok miután végeztél, akkor újra kell csinálnod az egészet egy új feladatsorral
 - Minden feladatnak új repositoryt csinálsz, a repo elnevezési guide [itt](#beállítások)
 - A munkákon méretellenörzést fogok végezni és teljes tartalomra is checkolom. Ha teljes az egyezés 2 különböző diák között, mindketten 1-est kapnak.
 - AI használata tiltott, ha felmerül a gyanu, akkor kérdés nélkül bevágom a karót.
@@ -17,18 +42,54 @@
 - A példakódban diveket és spanokat használok, neked természetesen táblázatokat kell csinálnod
 - Határidők: január 14 16:00, január 28 16:00
 - Ha kevesebb, mint 2 egész C van vissza (tehát egyet már elkezdtél), akkor kapsz 1 nap haladékot
-- Ha bárhol kérdés van, szólsz, kérdezel. Ha kóddal kapcsolatos kérdésed van és nem megy a commit, akkor az index.js fájl tartalmát [pastebin.com](https://pastebin.com/) on beilleszted kiválasztod a Syntax highlightingnál a javascriptet, és Create new paste, a linket meg elküldöd.
+- Ha bárhol kérdés van, szólsz, kérdezel. Ha kóddal kapcsolatos kérdésed van és nem megy a commit, akkor az index.js fájl tartalmát [pastebin.com](https://pastebin.com/) on beilleszted, kiválasztod a Syntax highlightingnál a javascriptet, és Create new paste, a linket meg elküldöd.
 - Ha észreveszem a komment vagy a változónév egyezéseket (akár az én változóneveimel/kommentjeimmel), akár más pótlóval, akkor karó
 - A commitok során meg van határozva, hogy használhatsz-e függvényt/változót/ciklust/etc. Ha az adott commitnál nem csinálok valamit, akkor te sem tehetsz olyant.
 
-# Beállítások:
+# Visszalépés
+Ha későn veszed észre, hogy már commitok óta hibás az implementációd, akkor vissza kell lépni az utolsó helyes commitra, és onnan előről kezdeni a feladat megoldását.
+4 lépésre van szükségünk ehhez:
+1. Megkeressük a commit history-ban az utolsó helyes commitot a repositorynknál
+2. A commit sorainak jobb oldalán a kettő <> mellett balra van egy kis duplanégyzet, arra rákattintunk, ez vágólapra másolja a commit azonosítóját
+3. kiadjuk a következő parancsot, a `(commitazonosito)` helyére illesszük be a vágólapon lévő commit azonosítót 
+ ```bash 
+git reset --hard (commitazonosito) 
+```
+4. A következő parancs visszavonja a commit azonosító utáni összes commitunkat a githubon is:
+```bash
+git push --force
+```
+
+# Így használd a referencia repót
+Egyik legegyszerűbb módja a referenciarepó használatának, ha clone-ozod magadhoz. Minden commitnál az utolsó oszlopban található a demó commit azonosító (a link utáni oszlop). Miután clone-oztad, belelépsz a mappába, és kiadod a következő parancsot:
+```bash
+git checkout (commitazonosito)
+```
+A commitazonosito helyére beilleszted pl ezt:
+```bash
+git checkout 17c53c25427ad2a1d721e1f556b33526947ad450
+```
+ez a ```console col object bev``` commitra visz, ahol látod a kódot, és böngészőben meg tudod nyitni a html-t is, ha meg akarod nézni hogyan működik a referenciamegoldás.
+Ha végeztél, vissza tudsz menni az eredeti commitra:
+```bash
+git checkout main
+```
+Ha véletlenül módosítottál valamelyik fájlon, akkor nem fogja engedni az ugrálást a commitok között.
+Ekkor add ki a következő parancsot:
+```bash
+git reset --hard
+```
+
+
+
+# Beállítások
 Miután kiválasztottad melyik feladatot szeretnéd csinálni, csinálsz egy új repót (lehet privát is), az alábbi táblázat alapján:
 | doga csoport | repository neve |
 | :-----------: |:-------------:|
-| [A csoport](./A_csoport.pdf) | terulet_esemeny |
-| [B csoport](./B_csoport.pdf) | irodalom_szereplok |
-| [C csoport](C_csoport.pdf) | irodalom_tipusok |
-| [D csoport](./D_csoport.pdf) | tori_ezernegyszaz |
+| [A csoport](./Acsoport.pdf) | xx_vilagirodalom |
+| [B csoport](./Bcsoport.pdf) | nyugatosok |
+| [C csoport](./Ccsoport.pdf) | irodalom_mufaj |
+| [D csoport](./Dcsoport.pdf) | irodalom_temakor |
 
 Cloneozod a repositoryt, majd belenavigálsz git-bash segítségével és kiadod az alábbi parancsot (az egész parancs egy sor, egyben másold ki):
 ```bash
