@@ -28,6 +28,8 @@
 
 # Követelmények
 - Mind a 4 dolgozatfeladatsort kell megcsinálni, mindegyiket az aktuális tierleveleden. Repó elnevezési utmutató [itt](#beállítások)
+- A munkádat addig nézem, amíg nem használsz olyan beépített függvényt, ami órán nem hangzott el.
+- a függvényeidet úgy nevezed el, ahogyan akarod
 - A commit_checker hookot kötelező használni, beállítási útmutató [itt](#beállítások)
 - A kommitokat manuálisan is át fogom nézni
 - Ha kész vagy az elsővel, írj rám Teamsen, átnézem manuálisan a kódodat, és döntök, hogy tudsz-e feljebb menni
@@ -52,6 +54,7 @@
 - Ha kimaradt egy kommit, [lépj vissza](#visszalépés) addig ameddig folytonos
 - A commitüzeneteket az adott cellából másold
 - Ha olyat csinálnál, amit én nem csinálok, kérdezd meg, hogy szabad-e.
+
 
 # Visszalépés
 Ha későn veszed észre, hogy már commitok óta hibás az implementációd, akkor vissza kell lépni az utolsó helyes commitra, és onnan előről kezdeni a feladat megoldását.
