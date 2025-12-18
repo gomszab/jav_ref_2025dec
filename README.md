@@ -45,6 +45,12 @@
 - Ha bárhol kérdés van, szólsz, kérdezel. Ha kóddal kapcsolatos kérdésed van és nem megy a commit, akkor az index.js fájl tartalmát [pastebin.com](https://pastebin.com/) on beilleszted, kiválasztod a Syntax highlightingnál a javascriptet, és Create new paste, a linket meg elküldöd.
 - Ha észreveszem a komment vagy a változónév egyezéseket (akár az én változóneveimel/kommentjeimmel), akár más pótlóval, akkor karó
 - A commitok során meg van határozva, hogy használhatsz-e függvényt/változót/ciklust/etc. Ha az adott commitnál nem csinálok valamit, akkor te sem tehetsz olyant.
+- A Tier level B és Tier Level C-t csak akkor fogadom el, ha a funkcionális teszten átment 100%-on.
+- A lépések között az eljárások bevezetésének menetét kötelező követni. Kreatív megoldásokat alkalmazni csak azután lehet, miután a szükséges feladatok megvannak
+- Neked nem DIV-eket kell használnod, hanem a table, thead, tr, stb...
+- Ha kimaradt egy kommit, [lépj vissza](#visszalépés) addig ameddig folytonos
+- A commitüzeneteket az adott cellából másold
+- Ha olyat csinálnál, amit én nem csinálok, kérdezd meg, hogy szabad-e.
 
 # Visszalépés
 Ha későn veszed észre, hogy már commitok óta hibás az implementációd, akkor vissza kell lépni az utolsó helyes commitra, és onnan előről kezdeni a feladat megoldását.
@@ -57,6 +63,11 @@ git reset --hard (commitazonosito)
 ```
 4. A következő parancs visszavonja a commit azonosító utáni összes commitunkat a githubon is:
 ```bash
+git push --force
+```
+például:
+```bash
+git reset --hard 17c53c25427ad2a1d721e1f556b33526947ad450
 git push --force
 ```
 
@@ -84,12 +95,12 @@ git reset --hard
 
 # Beállítások
 Miután kiválasztottad melyik feladatot szeretnéd csinálni, csinálsz egy új repót (lehet privát is), az alábbi táblázat alapján:
-| doga csoport | repository neve |
-| :-----------: |:-------------:|
-| [A csoport](./Acsoport.pdf) | xx_vilagirodalom |
-| [B csoport](./Bcsoport.pdf) | nyugatosok |
-| [C csoport](./Ccsoport.pdf) | irodalom_mufaj |
-| [D csoport](./Dcsoport.pdf) | irodalom_temakor |
+| doga csoport | repository neve | teszt config |
+| :-----------: |:-------------:|:--------:|
+| [A csoport](./Acsoport.pdf) | xx_vilagirodalom | [config.json](./configA.json)|
+| [B csoport](./Bcsoport.pdf) | nyugatosok |[config.json](./configB.json)|
+| [C csoport](./Ccsoport.pdf) | irodalom_mufaj |[config.json](./configC.json)|
+| [D csoport](./Dcsoport.pdf) | irodalom_temakor |[config.json](./configD.json)|
 
 Cloneozod a repositoryt, majd belenavigálsz git-bash segítségével és kiadod az alábbi parancsot (az egész parancs egy sor, egyben másold ki):
 ```bash
@@ -203,7 +214,6 @@ Ezekre figyelj: Mi a közös kódrész ebben a feladatban és a 4. feladatban?
 | 34. | row html double esemeny impl | Beregisztrálsz és implementálsz egy eseménykezelőt a duplasoros gombra | Kattintásra létrejön egy új rowspanos sor | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/15a6f70805ba9f9f876fe82492110acc855835be)  | 15a6f70805ba9f9f876fe82492110acc855835be |
 | 35. | row html ujsor | Kiszervezed függvénybe az új sor(ok) hozzáfűzésének logikáját | Nem változik a működés, mindkét gomb működik | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/de0c8f94a576b9bb2eeaf6cd9dd3a2fbfaf84c42) | de0c8f94a576b9bb2eeaf6cd9dd3a2fbfaf84c42 |
 | 36. | row html cella letreh | Kiszervezed függvénybe a cellalétrehozásokat (fejléc cella, és táblázattörzs cellát is kezelje) | Nem változik a működés, mindkét gomb működik | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/af878b4e953588c237d437448058ec39b7d85dbb) | af878b4e953588c237d437448058ec39b7d85dbb |
-
 
 
 ## Tier Level B
