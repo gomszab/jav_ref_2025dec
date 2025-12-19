@@ -216,38 +216,86 @@ htmlForm.addEventListener('submit', function(e){ // definialunk egy submit eseme
     const inputMasikPelda = target.querySelector('#negyedik'); // elkerjuk queryselectorral az negyedik id-ju elemet az urlapon belul
 
     /**
-     * @type {string} a telep inputba beirt ertek
+     * @type {boolean} a valtozo aminek az erteke addig igaz, amig minden kotelezo input ki van toltve
      */
-    const telepVal = inputTelep.value // beleteszem egy valtozoba az input mezobe irt tartalmat
-    /**
-     * @type {string} az agazat inputba beirt ertek
-     */
-    const agazatVal = inputAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
-    /**
-     * @type {string} a pelda1 inputba beirt ertek
-     */
-    const peldaVal = inputPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
-    /**
-     * @type {string} a pelda2 inputba beirt ertek
-     */
-    const masikPeldaVal = inputMasikPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+    let valid = true; // definialunk egy valid valtozot
 
-    /**
-     * @type {HtmlDataType} az objektum amit az inputok ertekei alapjan eloallitodik
-     */
-    const newObj ={} // definialunk egy ures objektumot.
-    newObj.where = telepVal // beallitjuk a telepulest
-    newObj.what = agazatVal // beallitjuk az agazatot
-    newObj.example1 = peldaVal; // beallitjuk a peldat
-    if(masikPeldaVal){ // ha van definialva masik pelda
-        newObj.example2 = masikPeldaVal; // beallitjuk a masikpelda tulajdonsag erteket is
+
+    if(inputTelep.value == ""){ // vizsgaljuk ures-e a telepulest tartalmazo input
+        /**
+         * @type {HTMLDivElement} a telepules inputnak a parentdivje
+         */
+        const inputParent = inputTelep.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
+        /**
+         * @type {HTMLDivElement} a telepules inputhoz tartozo erroros div
+         */
+        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
+        errorDiv.innerText = 'Település kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
+        valid = false; // a valid valtozot hamisra allitjuk
+    }
+
+    if(inputAgazat.value == ""){ // vizsgaljuk ures-e az elso agazatot tartalmazo input
+        /**
+         * @type {HTMLDivElement} az agazat inputnak a parentdivje
+         */
+        const inputParent = inputAgazat.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
+        /**
+         * @type {HTMLDivElement} az agazat inputhoz tartozo erroros div
+         */
+        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
+        errorDiv.innerText = 'Ágazat1 kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
+        valid = false; // a valid valtozot hamisra allitjuk
+    }
+
+    if(inputPelda.value == ""){ // vizsgaljuk ures-e az elso példát tartalmazo input
+        /**
+         * @type {HTMLDivElement} az pelda inputnak a parentdivje
+         */
+        const inputParent = inputPelda.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
+        /**
+         * @type {HTMLDivElement} a pelda inputhoz tartozo erroros div
+         */
+        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
+        errorDiv.innerText = 'Példa1 kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
+        valid = false; // a valid valtozot hamisra allitjuk
+    }
+
+    if(valid){ // vizsgaljuk, hogy a valid valtozo erteke igaz-e
+        /**
+         * @type {string} a telep inputba beirt ertek
+         */
+        const telepVal = inputTelep.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+        /**
+         * @type {string} az agazat inputba beirt ertek
+         */
+        const agazatVal = inputAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+        /**
+         * @type {string} a pelda1 inputba beirt ertek
+         */
+        const peldaVal = inputPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+        /**
+         * @type {string} a pelda2 inputba beirt ertek
+         */
+        const masikPeldaVal = inputMasikPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+
+        /**
+         * @type {HtmlDataType} az objektum amit az inputok ertekei alapjan eloallitodik
+         */
+        const newObj ={} // definialunk egy ures objektumot.
+        newObj.where = telepVal // beallitjuk a telepulest
+        newObj.what = agazatVal // beallitjuk az agazatot
+        newObj.example1 = peldaVal; // beallitjuk a peldat
+        if(masikPeldaVal){ // ha van definialva masik pelda
+            newObj.example2 = masikPeldaVal; // beallitjuk a masikpelda tulajdonsag erteket is
+        }
+        
+        /**
+         * @type {HTMLDivElement} a html tablazatunk torzse
+         */
+        const tbody = document.getElementById('htmltbody'); // elkerjuk a html tablazat torzset
+
+        newRowAppend(newObj, tbody); // hozzafuzzuk a htmlhez az uj objektum alapjan a sorokat
+        target.reset(); // alapertelmezettre allitjuk a formot (toroljuk az inputokat)
     }
     
-    /**
-     * @type {HTMLDivElement} a html tablazatunk torzse
-     */
-    const tbody = document.getElementById('htmltbody'); // elkerjuk a html tablazat torzset
-
-    newRowAppend(newObj, tbody); // hozzafuzzuk a htmlhez az uj objektum alapjan a sorokat
-    target.reset(); // alapertelmezettre allitjuk a formot (toroljuk az inputokat)
 })
