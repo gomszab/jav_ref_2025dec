@@ -94,32 +94,7 @@ jsform.addEventListener('submit', function(e){ // regisztralunk egy esemenykezel
      */
     const inputMasikPelda = target.querySelector('#otodik'); // elkerjuk queryselectorral az negyedik id-ju elemet az urlapon belul
 
-    /**
-     * @type {boolean} a valtozo aminek az erteke addig igaz, amig minden kotelezo input ki van toltve
-     */
-    let valid = true; // definialunk egy valid valtozot
-
-    /**
-     * @type {NodeList} az error osztalyokkal rendelkezo htmlelemeket tartalmazo lista
-     */
-    const errorDivList = target.querySelectorAll('.error') // elkerjuk a formon beluli osszes olyan elemet, ami az error osztallyal rendelkezik
-    for(const errorDiv of errorDivList){ // vegigiteralunk az osszes elemen
-        errorDiv.innerText = ''; // toroljuk a hibauzenetet az aktualis elementrol
-    }
-
-    if(!validateField(inputTelep, 'Település kitöltése kötelező')){ // ha az inputtelep validalasa hamissal ter vissza
-        valid = false; // a validot false-ra allitjuk
-    }
-
-    if(!validateField(inputAgazat, 'Ágazat1 kitöltése kötelező')){ // ha az inputagazat validalasa hamissal ter vissza
-        valid = false; // a validot false-ra allitjuk
-    }
-
-    if(!validateField(inputPelda, 'Példa1 kitöltése kötelező')){ // ha az inputPelda validalasa hamissal ter vissza
-        valid = false; // a validot false-ra allitjuk
-    }
-
-    if(valid){ // ha a valid valtozo igaz
+    if(validateAllField(inputTelep, inputAgazat, inputPelda, target)){ // ha a valid valtozo igaz
         /**
          * @type {string} a telep inputba beirt ertek
          */
@@ -193,34 +168,9 @@ htmlForm.addEventListener('submit', function(e){ // definialunk egy submit eseme
     /**
      * @type {HTMLInputElement} az negyedik id-val rendelkezo input
      */
-    const inputMasikPelda = target.querySelector('#negyedik'); // elkerjuk queryselectorral az negyedik id-ju elemet az urlapon belul
+    const inputMasikPelda = target.querySelector('#negyedik'); // elkerjuk queryselectorral az negyedik id-ju elemet az urlapon belul   
 
-    /**
-     * @type {boolean} a valtozo aminek az erteke addig igaz, amig minden kotelezo input ki van toltve
-     */
-    let valid = true; // definialunk egy valid valtozot
-    
-    /**
-     * @type {NodeList} az error osztalyokkal rendelkezo htmlelemeket tartalmazo lista
-     */
-    const errorDivList = target.querySelectorAll('.error') // elkerjuk a formon beluli osszes olyan elemet, ami az error osztallyal rendelkezik
-    for(const errorDiv of errorDivList){ // vegigiteralunk az osszes elemen
-        errorDiv.innerText = ''; // toroljuk a hibauzenetet az aktualis elementrol
-    }
-
-    if(!validateField(inputTelep, 'Település kitöltése kötelező')){ // ha az inputtelep validalasa hamissal ter vissza
-        valid = false; // a validot false-ra allitjuk
-    }
-
-    if(!validateField(inputAgazat, 'Ágazat1 kitöltése kötelező')){ // ha az inputagazat validalasa hamissal ter vissza
-        valid = false; // a validot false-ra allitjuk
-    }
-
-    if(!validateField(inputPelda, 'Példa1 kitöltése kötelező')){ // ha az inputPelda validalasa hamissal ter vissza
-        valid = false; // a validot false-ra allitjuk
-    }
-
-    if(valid){ // vizsgaljuk, hogy a valid valtozo erteke igaz-e
+    if(validateAllField(inputTelep, inputAgazat, inputPelda, target)){ // vizsgaljuk, hogy a valid valtozo erteke igaz-e
         /**
          * @type {string} a telep inputba beirt ertek
          */
@@ -259,6 +209,44 @@ htmlForm.addEventListener('submit', function(e){ // definialunk egy submit eseme
     }
     
 })
+
+/**
+ * 
+ * Torli az hibauzeneteket, es validalja a bemeneti 3 elemet, igazzal ter vissza, ha mindegyik ki van toltve
+ * 
+ * @param {HTMLInputElement} telepInputElem  a telepules inputja
+ * @param {HTMLInputElement} agazatInputElem az agazat inputja
+ * @param {HTMLInputElement} exampleInputElem a pelda inputja
+ * @param {HTMLFormElement} form a formot tartalmazza, ahol az inputok vannak 
+ * 
+ * @returns {boolean}
+ */
+function validateAllField(telepInputElem, agazatInputElem, exampleInputElem, form){ // definialunk egy fuggvenyt ami validalja az osszes szukseges inputot
+    /**
+     * @type {boolean} a valtozo aminek az erteke addig igaz, amig minden kotelezo input ki van toltve
+     */
+    let valid = true; // beallitunk egy lokalis valid valtozot
+    /**
+     * @type {NodeList} az error osztalyokkal rendelkezo htmlelemeket tartalmazo lista
+     */
+    const errorDivList = form.querySelectorAll('.error') // elkerjuk a formon beluli osszes olyan elemet, ami az error osztallyal rendelkezik
+    for(const errorDiv of errorDivList){ // vegigiteralunk az osszes elemen
+        errorDiv.innerText = ''; // toroljuk a hibauzenetet az aktualis elementrol
+    }
+
+    if(!validateField(telepInputElem, 'Település kitöltése kötelező')){ // ha az inputtelep validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
+    }
+
+    if(!validateField(agazatInputElem, 'Ágazat1 kitöltése kötelező')){ // ha az inputagazat validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
+    }
+
+    if(!validateField(exampleInputElem, 'Példa1 kitöltése kötelező')){ // ha az inputPelda validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
+    }
+    return valid; // visszaterunk a valid ertekevel
+}
 
 /**
  * 
