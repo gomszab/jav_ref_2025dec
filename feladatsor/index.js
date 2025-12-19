@@ -94,47 +94,94 @@ jsform.addEventListener('submit', function(e){ // regisztralunk egy esemenykezel
      */
     const inputMasikPelda = target.querySelector('#otodik'); // elkerjuk queryselectorral az negyedik id-ju elemet az urlapon belul
 
+    /**
+     * @type {boolean} a valtozo aminek az erteke addig igaz, amig minden kotelezo input ki van toltve
+     */
+    let valid = true; // definialunk egy valid valtozot
 
-    /**
-     * @type {string} a telep inputba beirt ertek
-     */
-    const telepVal = inputTelep.value // beleteszem egy valtozoba az input mezobe irt tartalmat
-    /**
-     * @type {string} az agazat inputba beirt ertek
-     */
-    const agazatVal = inputAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
-    /**
-     * @type {string} a pelda1 inputba beirt ertek
-     */
-    const peldaVal = inputPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
-    /**
-     * @type {string} az agazat2 inputba beirt ertek
-     */
-    const masikAgazatVal = inputMasikAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
-    /**
-     * @type {string} a pelda2 inputba beirt ertek
-     */
-    const masikPeldaVal = inputMasikPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
 
-    /**
-     * @type {DataType} az uj objektum amit letrehozunk az inputok ertekeinek segitsegevel
-     */
-    const newObj ={} // definialunk egy ures objektumot
-    newObj.where = telepVal; // where tulajdonsag megadasa
-    newObj.what1 = agazatVal; // what1 tulajdonsag megadasa
-    newObj.example1 = peldaVal; // example1 tulajdonsag megadasa
-    if(masikAgazatVal && masikPeldaVal){ // viszgaljuk, hogy a masik 2 input ki van e toltve
-        newObj.example2 = masikPeldaVal; //  ha ki van toltve, akkor beallitjuk az example2-t
-        newObj.what2= masikAgazatVal; // es a what2-t
+    if(inputTelep.value == ""){ // vizsgaljuk ures-e a telepulest tartalmazo input
+        /**
+         * @type {HTMLDivElement} a telepules inputnak a parentdivje
+         */
+        const inputParent = inputTelep.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
+        /**
+         * @type {HTMLDivElement} a telepules inputhoz tartozo erroros div
+         */
+        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
+        errorDiv.innerText = 'Település kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
+        valid = false; // a valid valtozot hamisra allitjuk
     }
 
-    /**
-     * @type {HTMLDivElement} a tablazat torzse
-     */
-    const tbody = document.getElementById('jstbody'); // elkerjuk azonosito alapjan a javascript tabla torzset
-    dataArray.push(newObj); // az uj objektumot hozzaadjuk az adattombhoz
-    renderTable(dataArray, tbody); // kirendereljuk az uj tablazattorzset a megvaltozott tomb segitsegevel
-    target.reset(); // visszaallitjuk a formot alapertelmezettre. (toroljuk az inputokat)
+    if(inputAgazat.value == ""){ // vizsgaljuk ures-e az elso agazatot tartalmazo input
+        /**
+         * @type {HTMLDivElement} az agazat inputnak a parentdivje
+         */
+        const inputParent = inputAgazat.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
+        /**
+         * @type {HTMLDivElement} az agazat inputhoz tartozo erroros div
+         */
+        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
+        errorDiv.innerText = 'Ágazat1 kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
+        valid = false; // a valid valtozot hamisra allitjuk
+    }
+
+    if(inputPelda.value == ""){ // vizsgaljuk ures-e az elso példát tartalmazo input
+        /**
+         * @type {HTMLDivElement} az pelda inputnak a parentdivje
+         */
+        const inputParent = inputPelda.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
+        /**
+         * @type {HTMLDivElement} a pelda inputhoz tartozo erroros div
+         */
+        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
+        errorDiv.innerText = 'Példa1 kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
+        valid = false; // a valid valtozot hamisra allitjuk
+    }
+
+    if(valid){ // ha a valid valtozo igaz
+        /**
+         * @type {string} a telep inputba beirt ertek
+         */
+        const telepVal = inputTelep.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+        /**
+         * @type {string} az agazat inputba beirt ertek
+         */
+        const agazatVal = inputAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+        /**
+         * @type {string} a pelda1 inputba beirt ertek
+         */
+        const peldaVal = inputPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+        /**
+         * @type {string} az agazat2 inputba beirt ertek
+         */
+        const masikAgazatVal = inputMasikAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+        /**
+         * @type {string} a pelda2 inputba beirt ertek
+         */
+        const masikPeldaVal = inputMasikPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+
+        /**
+         * @type {DataType} az uj objektum amit letrehozunk az inputok ertekeinek segitsegevel
+         */
+        const newObj ={} // definialunk egy ures objektumot
+        newObj.where = telepVal; // where tulajdonsag megadasa
+        newObj.what1 = agazatVal; // what1 tulajdonsag megadasa
+        newObj.example1 = peldaVal; // example1 tulajdonsag megadasa
+        if(masikAgazatVal && masikPeldaVal){ // viszgaljuk, hogy a masik 2 input ki van e toltve
+            newObj.example2 = masikPeldaVal; //  ha ki van toltve, akkor beallitjuk az example2-t
+            newObj.what2= masikAgazatVal; // es a what2-t
+        }
+
+        /**
+         * @type {HTMLDivElement} a tablazat torzse
+         */
+        const tbody = document.getElementById('jstbody'); // elkerjuk azonosito alapjan a javascript tabla torzset
+        dataArray.push(newObj); // az uj objektumot hozzaadjuk az adattombhoz
+        renderTable(dataArray, tbody); // kirendereljuk az uj tablazattorzset a megvaltozott tomb segitsegevel
+        target.reset(); // visszaallitjuk a formot alapertelmezettre. (toroljuk az inputokat)
+    }
+    
 
 });
 
