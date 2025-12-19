@@ -137,3 +137,70 @@ jsform.addEventListener('submit', function(e){ // regisztralunk egy esemenykezel
     target.reset(); // visszaallitjuk a formot alapertelmezettre. (toroljuk az inputokat)
 
 });
+
+
+/**
+ * @type {HTMLFormElement} a htmlformot tartozo valtozo, aminek a submit esemenyere esemenykezelot definialunk
+ */
+const htmlForm = document.getElementById('htmlform'); // elkerjuk a htmlformot azonosito alapjan
+htmlForm.addEventListener('submit', function(e){ // definialunk egy submit esemenykezelot a html formhoz
+    e.preventDefault(); // megakadalyozzuk az alapertelmezett mukodest az urlap submit esemenye soran
+
+    /**
+     * @type {HTMLFormElement} a submit esemeny targetje, a formelement
+     */
+    const target = e.target; // beleteszem valtozoba az esemeny targetjet
+
+    /**
+     * @type {HTMLInputElement} az elso id-val rendelkezo input
+     */
+    const inputTelep = target.querySelector('#elso'); // elkerjuk queryselectorral az elso id-ju elemet az urlapon belul. lekerheted name tulajdonsag alapjan is, ha szeretned
+    /**
+     * @type {HTMLInputElement} az masodik id-val rendelkezo input
+     */
+    const inputAgazat = target.querySelector('#masodik'); // elkerjuk queryselectorral az masodik id-ju elemet az urlapon belul
+    /**
+     * @type {HTMLInputElement} az harmadik id-val rendelkezo input
+     */
+    const inputPelda = target.querySelector('#harmadik'); // elkerjuk queryselectorral az harmadik id-ju elemet az urlapon belul
+    /**
+     * @type {HTMLInputElement} az negyedik id-val rendelkezo input
+     */
+    const inputMasikPelda = target.querySelector('#negyedik'); // elkerjuk queryselectorral az negyedik id-ju elemet az urlapon belul
+
+    /**
+     * @type {string} a telep inputba beirt ertek
+     */
+    const telepVal = inputTelep.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+    /**
+     * @type {string} az agazat inputba beirt ertek
+     */
+    const agazatVal = inputAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+    /**
+     * @type {string} a pelda1 inputba beirt ertek
+     */
+    const peldaVal = inputPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+    /**
+     * @type {string} a pelda2 inputba beirt ertek
+     */
+    const masikPeldaVal = inputMasikPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+
+    /**
+     * @type {HtmlDataType} az objektum amit az inputok ertekei alapjan eloallitodik
+     */
+    const newObj ={} // definialunk egy ures objektumot.
+    newObj.where = telepVal // beallitjuk a telepulest
+    newObj.what = agazatVal // beallitjuk az agazatot
+    newObj.example1 = peldaVal; // beallitjuk a peldat
+    if(masikPeldaVal){ // ha van definialva masik pelda
+        newObj.example2 = masikPeldaVal; // beallitjuk a masikpelda tulajdonsag erteket is
+    }
+    
+    /**
+     * @type {HTMLDivElement} a html tablazatunk torzse
+     */
+    const tbody = document.getElementById('htmltbody'); // elkerjuk a html tablazat torzset
+
+    newRowAppend(newObj, tbody); // hozzafuzzuk a htmlhez az uj objektum alapjan a sorokat
+    target.reset(); // alapertelmezettre allitjuk a formot (toroljuk az inputokat)
+})

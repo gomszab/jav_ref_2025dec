@@ -1,5 +1,6 @@
 /**
  * @typedef {{where: string, what1: string, example1: string, what2?:string, example2?:string}} DataType
+ * @typedef {{where: string, what: string, example1: string, example2?: string}} HtmlDataType
  */
 
 
@@ -65,7 +66,7 @@ function renderTable(arr, tbody){ // definialom a rendertable fuggvenyt 1 parame
  * 
  * Hozzafuz uj sorokat az objektum alapjan a tablazathoz
  * 
- * @param {DataType} newRow a hozzafuzendo sor adatai
+ * @param {HtmlDataType} newRow a hozzafuzendo sor adatai
  * @param {HTMLDivElement} tbody a tablazat torzse
  * 
  * @returns {void}
@@ -80,7 +81,7 @@ function newRowAppend(newRow, tbody){ // definialom a fuggvenyt ami hozzafuz uj 
 
     createCell(newRow.where, row); // letrehozok egy cellat az where tartalommal (ezt el kene tarolni, hogy coslpant tudjunk allitani)
 
-    createCell(newRow.what1, row); // letrehozok egy cellat az what1 tartalommal
+    createCell(newRow.what, row); // letrehozok egy cellat az what1 tartalommal
 
     createCell(newRow.example1, row); // letrehozok egy cellat az example1 tartalommal
 
