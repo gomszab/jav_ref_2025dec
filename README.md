@@ -22,11 +22,13 @@
     - [Feladat 3: Checkbox implementalas (4-6 commit)](#feladat-3-checkbox-implementalas-4-6-commit)
     - [Feladat 4: Feladatsor: A 2. feladat (7-8 commit)](#feladat-4-feladatsor-a-2-feladat-7-8-commit)
     - [Feladat 5: Feladatsor: A 4-5. feladat (9-15 commit)](#feladat-5-feladatsor-a-4-5-feladat-9-15-commit)
-    - [Feladat 6: Feladatsor: B 1. feladat](#feladat-6-feladatsor-b-1-feladat)
-    - [Feladat 7: Feladatsor: B 2. feladat](#feladat-7-feladatsor-b-2-feladat)
+    - [Feladat 6: Feladatsor: B 1. feladat, B 2. feladat (16-17 commit)](#feladat-6-feladatsor-b-1-feladat-b-2-feladat-16-17-commit)
+    - [Feladat 7: Feladatsor: B 1. feladat, B 2. feladat validáció (18-22 commit)](#feladat-7-feladatsor-b-1-feladat-b-2-feladat-validáció-18-22-commit)
     - [(opcionális) Feladat 8: Optimalizálás](#opcionális-feladat-8-optimalizálás)
   - [Tier Level C](#tier-level-c)
     - [Mit fogunk csinálni?](#mit-fogunk-csinálni-2)
+- [GYIK](#gyik)
+      - [Mennyi idő alatt lehet megcsinálni?](#mennyi-idő-alatt-lehet-megcsinálni)
 
 
 # Követelmények
@@ -307,24 +309,63 @@ Nekiállunk a feladatsornak. Megnézzük extraként a checkbox és a dropdownlis
 
 ### Feladat 1: Feladatsor: A 1. feladat (1 commit)
 Hozz létre egy feladatsor mappát és implementáld a feladatkiírás szerint a colspanos és rowspanos táblázatot. A táblázatok alatt legyen 2-2 gomb, ami hozzáfűz egy objektumot a táblázathoz megjelenítve új sor(oka)t a táblázatokban. A javascriptnél a tömbhöz fűzünk hozzá elemet és újrarendereljüj a táblázatokat, a html-nél a html-hez csatolunk új sort. 
+| Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
+|:-----------|:------:|:-------------:| :-----:|----:|--------|
+| 1. | feladatsor 1 feladat | Implementálod a feladatsor szerint html és javascript táblázatot valamint 2 gombot ami 1-1 elemet hozzáad | Látod a 2 táblázatot a 2 gombbal, amelyek az adott táblázathoz hozzáfűznek sort| [commit](https://github.com/gomszab/jav_ref_2025dec/tree/b1cad168c8e042617afe0d280e2b7d6c0623630d) | b1cad168c8e042617afe0d280e2b7d6c0623630d |
 
 ### Feladat 2: Select implementalas (2-3 commit)
 Hozz létre egy select mappát, és másold bele az elöző feladatban implementált alkalmazást. Hozz létre a html-en egy dropdownlist elemet, amelynek 3 eleme van: "Válassz elemet", "js", "html". A táblázatokat tedd bele egy divbe, majd a kiválasztott dropdown opció alapján jelenítsd meg a megfelelő div-et, és rejtsd el a másikat a hide osztály segítségével. Az oldal betöltésekor nem jelenítjük meg egyik táblázatot sem.
+| Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
+|:-----------|:------:|:-------------:| :-----:|----:|--------|
+| 2. | select section def | létrehozol 1-1 divet a táblázatoknak + gomboknak, és azokat ellátod id-vel, valamint létrehozol egy select-et 3 opcióval a html-en | Látod a selectet | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/3b945897edff9e43d724a2c06eefc60c5d94b310) | 3b945897edff9e43d724a2c06eefc60c5d94b310 |
+| Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
+|:-----------|:------:|:-------------:| :-----:|----:|--------|
+| 3. | select esemeny impl | implementálod az eseménykezelőt a selectnek | ha változtatod a selectet, más táblázat jelenik meg | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/0d9e4c6886603f15379eeb497df0c167f7fa71f1) | 0d9e4c6886603f15379eeb497df0c167f7fa71f1 |
 
 ### Feladat 3: Checkbox implementalas (4-6 commit)
 Hozz létre egy checkbox mappát, és másold bele az 1. feladatban implementált alkalmazást. Hozz létre a html-en egy checkbox elemet, valamint tedd bele 1-1 divbe a megfelelő táblázatot. A checkbox értéke alapján, ha igaz, akkor jelenítsd meg a html-ben implementált div-et, és rejtsd el a másikat. Oldal betöltésekor a javascript táblázat jelenik meg.
-
+| Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
+|:-----------|:------:|:-------------:| :-----:|----:|--------|
+| 4. | checkbox section def | létrehozol 1-1 divet a táblázatoknak + gomboknak, és azokat ellátod id-vel, valamint létrehozol egy checkboxot a html-en | Látod a checkboxot | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/1495628e174c9880e7614e7938f2039c6ff8b0e2) | 1495628e174c9880e7614e7938f2039c6ff8b0e2 |
+| 5. | checkbox esemenykezelo impl | implementálod a checkbox eseménykezelőjét, ami elrejti és megjeleníti a diveket | ha változtatod a checkboxot másik táblázat jelenik meg | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/8a38ad747d9721f799004ebe65b41d0969ecd025) | 8a38ad747d9721f799004ebe65b41d0969ecd025 |
+| 6. | checkbox kezeles betolteskor | oldal betöltés után is ellenőrzöd a checkbox értékét, és az értéke alapján jelenítesz meg táblázatot | oldalbetöltéskor a megfelelő táblázat jelenik meg |[commit](https://github.com/gomszab/jav_ref_2025dec/tree/23f704a48968a5496bee8b11523c183572e095d3) | 23f704a48968a5496bee8b11523c183572e095d3 |
 ### Feladat 4: Feladatsor: A 2. feladat (7-8 commit)
 A feladatsor mappában implementáld a dolgozat 2-es feladatát.
+| Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
+|:-----------|:------:|:-------------:| :-----:|----:|--------|
+| 7. | feladatsor section init | A feladatsor alapján hozzáadod a diveket és a selectet/checkboxot | látod mindkét táblázatot | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/1495628e174c9880e7614e7938f2039c6ff8b0e2) | 02ddb103abb976eadb4991b178dfebf86748e538 |
+| 8. | feladatsor 2 feladat | implementálod a checkbox eseménykezelőjét, ami elrejti és megjeleníti a diveket | ha változtatod a checkboxot másik táblázat jelenik meg | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/4a7f1c0ea0514edfc0fa0717a9830480a15264a2) | 4a7f1c0ea0514edfc0fa0717a9830480a15264a2 |
 
 ### Feladat 5: Feladatsor: A 4-5. feladat (9-15 commit)
-A feladatsor mappában Töröld a gombokat és implementáld a dolgozat 4-5-ös feladatát.
+A feladatsor mappában töröld a gombokat, szervezd ki a függvényeket, és implementáld a dolgozat 4-5-ös feladatát.
+| Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
+|:-----------|:------:|:-------------:| :-----:|----:|--------|
+| 9. | gombok torlese | Törlöd a gombokat az oldalról, valamint js-ből, valamint a hozzájuk tartozó eseménykezelőket | nem látod a gombokat | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/3bda41d81eedf20d36b4453f2b885f2096f0d3af) | 3bda41d81eedf20d36b4453f2b885f2096f0d3af |
+| 10. | functions.js bevezetese | Létrehozhatsz egy functions.js-t ahova átteszed a függvénydefiniciókat, és a typedefiniciót | nem változik semmi | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/7b1716c93a26ee544fbe4ca78c507e71d33052bc) | 7b1716c93a26ee544fbe4ca78c507e71d33052bc |
+| 11. | feladatsor 4 feladat | Htmlen megcsinálod a formot a feladatsor alapján | látod a html táblázathoz tartozó formot | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/5b4349437b5e672152fc3c8b178456dece23bbee) | 5b4349437b5e672152fc3c8b178456dece23bbee |
+| 12. | feladatsor 5 feladat | Jsen megcsinálod a formot a feladatsor alapján (nem használhatsz sem függvényt, sem formot ehhez) | látod js táblázathoz tartozó formot  | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/2e5f8156671f7f348f9b34bd26bf7cf153178a9f) | 2e5f8156671f7f348f9b34bd26bf7cf153178a9f |
+| 13. | forminput fuggveny bev | Bevezetsz egy függvényt, ami 1 form fieldet a divvel csinál, és lecseréled a korábbi kódot  | nincs változás | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/20106314d8d1bc14eaba890b35a9b2bceede3f5a) | 20106314d8d1bc14eaba890b35a9b2bceede3f5a |
+| 14. | forminput array bev | Bevezetsz egy tömböt, azon iterálsz végig és hívod a függvényt | nincs változás | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/140193cb5fda20c7fcb492557439208858517ab3) | 140193cb5fda20c7fcb492557439208858517ab3 |
+| 15. | formgenerate fuggveny bev | a functions.js-be áthelyezed a függvényt amit csináltál, és definiálsz egy generateForm függvényt, amit meghívsz az index.js-ben | nincs változás | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/6f16909daa6c1c90758f8ddd11cb11ba30590478) | 6f16909daa6c1c90758f8ddd11cb11ba30590478 |
 
-### Feladat 6: Feladatsor: B 1. feladat 
+
+### Feladat 6: Feladatsor: B 1. feladat, B 2. feladat (16-17 commit)
 A feladatsor mappában implementáld az eseménykezelőket az ürlapokhoz validáció nélkül
+| Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
+|:-----------|:------:|:-------------:| :-----:|----:|--------|
+| 16. | js form submit implementalasa | Implementálod az eseménykezelést a jsfromnál validáció nélkül a feladatsor alapján | Hozzá tudsz adni elemet a js táblázathoz | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/d57dd9a1bb4899191916798839c9ef371ca90757) | d57dd9a1bb4899191916798839c9ef371ca90757 |
+| 17. | html form submit implementalasa | Implementálod az eseménykezelést a htmlfromnál validáció nélkül a feladatsor alapján | Hozzá tudsz adni elemet a html táblázathoz | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/e467ae5173b6e68cae0dc041e863bda13e10713c) | e467ae5173b6e68cae0dc041e863bda13e10713c |
 
-### Feladat 7: Feladatsor: B 2. feladat 
+### Feladat 7: Feladatsor: B 1. feladat, B 2. feladat validáció (18-22 commit)
 Implementáld a validációt az ürlap eseménykezelőihez.
+| Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
+|:-----------|:------:|:-------------:| :-----:|----:|--------|
+| 18. | js form validacio | Implementálod a validációt a js formhoz feladatsor alapján | nem tudsz üres elemet hozzáadni a js táblázathoz | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/deab3a578cf73a0d4f3ae7435fd6b95ef8e79de5) | deab3a578cf73a0d4f3ae7435fd6b95ef8e79de5 |
+| 19. | html form validacio | Implementálod a validációt a htmlh formhoz feladatsor alapján  | nem tudsz üres elemet hozzáadni a html táblázathoz | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/2a0e7374b0004b4209a8644f506b37600192590f) | 2a0e7374b0004b4209a8644f506b37600192590f |
+| 20. | form error uzenetek torlese | Implementálod a hibaüzenetek törlését az eseménykezelőn belül | ha írsz valamit a beviteli mezőbe, eltünik a hibaüzenet törléskor | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/e919cbc451c113d8d8faf8692c4f6ada057c3d49) | e919cbc451c113d8d8faf8692c4f6ada057c3d49 |
+| 21. | form error fuggveny bev | bevezetsz egy függvényt, amivel helyettesíted a validációt | nincs változás | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/7c70c357bbc433b60e1fb3ab62f1ffb8bf4e7920) | 7c70c357bbc433b60e1fb3ab62f1ffb8bf4e7920 |
+| 22. | feladatsor kesz | bevezetsz egy függvényt, amivel mind a 3 validációt helyettesíted | nincs változás | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/1eada1cfc8b449b8c0420bde67732555740ac16e) | 1eada1cfc8b449b8c0420bde67732555740ac16e |
+
 
 ### (opcionális) Feladat 8: Optimalizálás 
 Ha van saját megoldásod, vagy tudnál egyszerűsíteni az alkalmazás kódján, akkor itt megteheted.
@@ -332,3 +373,7 @@ Ha van saját megoldásod, vagy tudnál egyszerűsíteni az alkalmazás kódján
 ## Tier Level C
 ### Mit fogunk csinálni?
 Implementáld a feladatsort a dolgozat kiírása szerint.
+
+# GYIK
+#### Mennyi idő alatt lehet megcsinálni?  
+Nem tudom
