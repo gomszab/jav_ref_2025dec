@@ -99,6 +99,13 @@ jsform.addEventListener('submit', function(e){ // regisztralunk egy esemenykezel
      */
     let valid = true; // definialunk egy valid valtozot
 
+    /**
+     * @type {NodeList} az error osztalyokkal rendelkezo htmlelemeket tartalmazo lista
+     */
+    const errorDivList = target.querySelectorAll('.error') // elkerjuk a formon beluli osszes olyan elemet, ami az error osztallyal rendelkezik
+    for(const errorDiv of errorDivList){ // vegigiteralunk az osszes elemen
+        errorDiv.innerText = ''; // toroljuk a hibauzenetet az aktualis elementrol
+    }
 
     if(inputTelep.value == ""){ // vizsgaljuk ures-e a telepulest tartalmazo input
         /**
@@ -219,7 +226,14 @@ htmlForm.addEventListener('submit', function(e){ // definialunk egy submit eseme
      * @type {boolean} a valtozo aminek az erteke addig igaz, amig minden kotelezo input ki van toltve
      */
     let valid = true; // definialunk egy valid valtozot
-
+    
+    /**
+     * @type {NodeList} az error osztalyokkal rendelkezo htmlelemeket tartalmazo lista
+     */
+    const errorDivList = target.querySelectorAll('.error') // elkerjuk a formon beluli osszes olyan elemet, ami az error osztallyal rendelkezik
+    for(const errorDiv of errorDivList){ // vegigiteralunk az osszes elemen
+        errorDiv.innerText = ''; // toroljuk a hibauzenetet az aktualis elementrol
+    }
 
     if(inputTelep.value == ""){ // vizsgaljuk ures-e a telepulest tartalmazo input
         /**
