@@ -48,6 +48,7 @@ renderHeader(headerList, tableHead); // kirenderelem a fejlecet a fuggveny meghi
  * @type {HTMLDivElement} egy div a tablazat torzsenek
  */
 const tableBody = document.createElement('div'); // letrehozok egy divet
+tableBody.id = 'jstbody'; // beallitunk azonositot a tablazat torzsenek
 table.appendChild(tableBody); // hozzacsatolom a tablazathoz
 renderTable(dataArray, tableBody); // meghivom a fuggvenyt ami kiirja a tablazatot consolera
 
@@ -58,4 +59,81 @@ const checkboxHtml = document.getElementById('tableselector'); // elkerjuk a che
 handleCheckbox(checkboxHtml) //meghivjuk a checkbox kezelo fuggvenyt miutan betoltott minden elem
 checkboxHtml.addEventListener('change', checkboxEvtHandler); // regisztralom az esemenykezelo fuggvent az eventlistenerre a fuggveny nevenek segitsegevel
 
-generateForm(sectionDiv); // generalunk egy formot
+/**
+ * @type {HTMLFormElement} a javascriptben generált formot tartalmazó változó
+ */
+const jsform = generateForm(sectionDiv); // generalunk egy formot
+
+jsform.addEventListener('submit', function(e){ // regisztralunk egy esemenykezelot a form submit esemenyere
+    e.preventDefault(); // megakadalyozzuk az alapertelmezett mukodest az urlap submit esemenye soran
+
+    /**
+     * @type {HTMLFormElement} a submit esemeny targetje, a formelement
+     */
+    const target = e.target; // beleteszem valtozoba az esemeny targetjet
+
+    // esetunkben a getElementById nem mukodne, hiszen mindket formon van elso id-val rendelkezo elem, es a getElementbyid csak az elso elofordulast adja vissza
+    /**
+     * @type {HTMLInputElement} az elso id-val rendelkezo input
+     */
+    const inputTelep = target.querySelector('#elso'); // elkerjuk queryselectorral az elso id-ju elemet az urlapon belul. lekerheted name tulajdonsag alapjan is, ha szeretned
+    /**
+     * @type {HTMLInputElement} az masodik id-val rendelkezo input
+     */
+    const inputAgazat = target.querySelector('#masodik'); // elkerjuk queryselectorral az masodik id-ju elemet az urlapon belul
+    /**
+     * @type {HTMLInputElement} az harmadik id-val rendelkezo input
+     */
+    const inputPelda = target.querySelector('#harmadik'); // elkerjuk queryselectorral az harmadik id-ju elemet az urlapon belul
+    /**
+     * @type {HTMLInputElement} az negyedik id-val rendelkezo input
+     */
+    const inputMasikAgazat = target.querySelector('#negyedik'); // elkerjuk queryselectorral az negyedik id-ju elemet az urlapon belul
+    /**
+     * @type {HTMLInputElement} az negyedik id-val rendelkezo input
+     */
+    const inputMasikPelda = target.querySelector('#otodik'); // elkerjuk queryselectorral az negyedik id-ju elemet az urlapon belul
+
+
+    /**
+     * @type {string} a telep inputba beirt ertek
+     */
+    const telepVal = inputTelep.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+    /**
+     * @type {string} az agazat inputba beirt ertek
+     */
+    const agazatVal = inputAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+    /**
+     * @type {string} a pelda1 inputba beirt ertek
+     */
+    const peldaVal = inputPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+    /**
+     * @type {string} az agazat2 inputba beirt ertek
+     */
+    const masikAgazatVal = inputMasikAgazat.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+    /**
+     * @type {string} a pelda2 inputba beirt ertek
+     */
+    const masikPeldaVal = inputMasikPelda.value // beleteszem egy valtozoba az input mezobe irt tartalmat
+
+    /**
+     * @type {DataType} az uj objektum amit letrehozunk az inputok ertekeinek segitsegevel
+     */
+    const newObj ={} // definialunk egy ures objektumot
+    newObj.where = telepVal; // where tulajdonsag megadasa
+    newObj.what1 = agazatVal; // what1 tulajdonsag megadasa
+    newObj.example1 = peldaVal; // example1 tulajdonsag megadasa
+    if(masikAgazatVal && masikPeldaVal){ // viszgaljuk, hogy a masik 2 input ki van e toltve
+        newObj.example2 = masikPeldaVal; //  ha ki van toltve, akkor beallitjuk az example2-t
+        newObj.what2= masikAgazatVal; // es a what2-t
+    }
+
+    /**
+     * @type {HTMLDivElement} a tablazat torzse
+     */
+    const tbody = document.getElementById('jstbody'); // elkerjuk azonosito alapjan a javascript tabla torzset
+    dataArray.push(newObj); // az uj objektumot hozzaadjuk az adattombhoz
+    renderTable(dataArray, tbody); // kirendereljuk az uj tablazattorzset a megvaltozott tomb segitsegevel
+    target.reset(); // visszaallitjuk a formot alapertelmezettre. (toroljuk az inputokat)
+
+});
