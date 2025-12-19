@@ -65,11 +65,39 @@ const jsform = document.createElement('form'); // letrehozunk egy formot
 jsform.id = 'jsform'; // beallitunk neki id-t
 sectionDiv.appendChild(jsform); // hozzacsatoljuk a formot a jssectionhoz
 
-createInputForm('Település', 'elso', 'telepules', jsform); // letrehozom a telepulest
-createInputForm('Ágazat', 'masodik', 'agazat1', jsform); // letrehozom az agazat1-t
-createInputForm('Példa', 'harmadik', 'pelda1', jsform); // letrehozom a pelda1-t
-createInputForm('Ágazat', 'negyedik', 'agazat2', jsform); // letrehozom az agazat2-t
-createInputForm('Példa2', 'otodik', 'pelda2', jsform); // letrehozom a pelda2-t
+/**
+ * @type {{label: string, id: string, name: string}} a formfieldek konfiguracioit tartalmazo tomb
+ */
+const formFields = [ // definialunk egy tombot
+    { // elso objektum
+        label: 'Település', // label tulajdonsag
+        id: 'elso', // id tulajdonsag
+        name: 'telepules' // name tulajdonsag
+    },
+    {// masodik objektum
+        label: 'Ágazat1',// label tulajdonsag
+        id: 'masodik', // id tulajdonsag
+        name: 'agazat1' // name tulajdonsag
+    },
+    {// harmadik objektum
+        label: 'Példa',// label tulajdonsag
+        id: 'harmadik',// id tulajdonsag
+        name: 'pelda1' // name tulajdonsag
+    },
+    {// negyedik objektum
+        label: 'Ágazat2',// label tulajdonsag
+        id: 'negyedik',// id tulajdonsag
+        name: 'agazat2' // name tulajdonsag
+    },
+    {// otodik objektum
+        label: 'Példa2',// label tulajdonsag
+        id: 'otodik',// id tulajdonsag
+        name: 'pelda2'// name tulajdonsag
+    },
+]
+for(const formField of formFields){ // vegigiteralok a tombon
+ createInputForm(formField.label, formField.id, formField.name, jsform); // letrehozom a divet az aktualis elem alapjan
+}
 
 /**
  * @type {HTMLButtonElement} a letrehozott gomb az urlap elkuldesehez
