@@ -153,3 +153,107 @@ function checkboxEvtHandler(e){ // definialok egy fuggvenyt a checkbox esemenyke
     const target = e.target; // beletesszuk egy valtozoba a targetet
     handleCheckbox(target); // meghivjuk a checkboxkezelo fuggvent az esemeny targetjevel
 }
+
+/**
+ * 
+ * Letrehoz egy divet inputtal, labellel, es error divvel, majd hozzacsatolja a formhoz
+ * 
+ * @param {string} labelText a label szoveget tartalmazza 
+ * @param {string} id az input id-jet tartalmazza
+ * @param {string} name az input name-jet tartalmazza
+ * @param {HTMLFormElement} form az urlapot tartalmazza
+ * 
+ * @returns {void}
+ */
+function createInputForm(labelText, id, name, form){ // definialunk egy fuggvenyt a kodismetles csokkentesenek erdekeben
+
+    /**
+     * @type {HTMLDivElement} letrehozott div elem, ami tartalmazni fogja a labelt, inputot, errort
+     */
+    const divForForm = document.createElement('div'); // letrehozunk egy divet a agazatnak
+    form.appendChild(divForForm); // hozzacsatoljuk a formhoz a divet.
+    /**
+     * @type {HTMLLabelElement} letrehozott label az inputhoz
+     */
+    const labelForInput = document.createElement('label') // letrehozunk egy labelt
+    labelForInput.htmlFor = id; // beallitjuk a for tulajdonsagba, hogy milyen id-hoz tartozik
+    labelForInput.innerText = labelText // beallitjuk a label szoveget
+    divForForm.appendChild(labelForInput); // hozzacsatoljuk a div-hez a labelt
+    divForForm.appendChild(document.createElement('br')); // beszurunk egy sortorest
+    /**
+     * @type {HTMLInputElement} letrehozott input
+     */
+    const inputElement = document.createElement('input') // letrehozunk egy inputot
+    inputElement.id=id; // beallitunk neki egy id-t
+    inputElement.name=name; // beallitunk nev tulajdonsagot az inputnak
+    divForForm.appendChild(inputElement); // hozzacsatoljuk az inputot a divhez
+    /**
+     * @type {HTMLDivElement} letrehozott div az errornak
+     */
+    const errorForInput = document.createElement('div');// letrehozunk egy divet az errornak
+    errorForInput.classList.add('error'); // hozzaadjuk az error osztalyt
+    divForForm.appendChild(errorForInput); // hozzacsatoljuk az error divet az elején létrehozott divhez
+
+}
+
+/**
+ * 
+ * Letrehoz egy formot es visszater vele
+ * 
+ * @param {HTMLDivElement} section ahova letrehozzuk a formunkat
+ * 
+ * @returns {HTMLFormElement}
+ */
+function generateForm(section){ // definialunk egy fuggvenyt ami legeneralja a fuggvenyt
+
+    /**
+     * @type {{label: string, id: string, name: string}} a formfieldek konfiguracioit tartalmazo tomb
+     */
+    const formFields = [ // definialunk egy tombot
+        { // elso objektum
+            label: 'Település', // label tulajdonsag
+            id: 'elso', // id tulajdonsag
+            name: 'telepules' // name tulajdonsag
+        },
+        {// masodik objektum
+            label: 'Ágazat1',// label tulajdonsag
+            id: 'masodik', // id tulajdonsag
+            name: 'agazat1' // name tulajdonsag
+        },
+        {// harmadik objektum
+            label: 'Példa',// label tulajdonsag
+            id: 'harmadik',// id tulajdonsag
+            name: 'pelda1' // name tulajdonsag
+        },
+        {// negyedik objektum
+            label: 'Ágazat2',// label tulajdonsag
+            id: 'negyedik',// id tulajdonsag
+            name: 'agazat2' // name tulajdonsag
+        },
+        {// otodik objektum
+            label: 'Példa2',// label tulajdonsag
+            id: 'otodik',// id tulajdonsag
+            name: 'pelda2'// name tulajdonsag
+        },
+    ]
+
+    /**
+     * @type {HTMLFormElement} letrehozott form a javascript tablazatnak
+     */
+    const jsform = document.createElement('form'); // letrehozunk egy formot
+    jsform.id = 'jsform'; // beallitunk neki id-t
+    section.appendChild(jsform); // hozzacsatoljuk a formot a section parameterhez
+
+
+    for(const formField of formFields){ // vegigiteralok a tombon
+        createInputForm(formField.label, formField.id, formField.name, jsform); // letrehozom a divet az aktualis elem alapjan
+    }
+
+    /**
+     * @type {HTMLButtonElement} a letrehozott gomb az urlap elkuldesehez
+     */
+    const formButton = document.createElement('button'); // letrehozunk egy gombot
+    formButton.innerText = 'Hozzáadás' // beallitunk szoveget a gombra
+    jsform.appendChild(formButton); // hozzacsatoljuk a formhoz
+    return jsform; // visszaterunk a letrehozott formal
+}
