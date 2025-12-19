@@ -6,6 +6,7 @@
 - [Szintlépés](#szintlépés)
 - [Feladatok](#feladatok)
   - [Tier Level A](#tier-level-a)
+    - [Mit fogunk csinálni?](#mit-fogunk-csinálni)
     - [Mappastruktúra](#mappastruktúra)
     - [Feladat 1: Console Colspan (1-9 commit)](#feladat-1-console-colspan-1-9-commit)
     - [Feladat 2: Table colspan (10-13 commit)](#feladat-2-table-colspan-10-13-commit)
@@ -14,16 +15,18 @@
     - [Feladat 5: Table Html colspan (27-31 commit)](#feladat-5-table-html-colspan-27-31-commit)
     - [Feladat 6: Table Html rowspan (32-36 commit)](#feladat-6-table-html-rowspan-32-36-commit)
   - [Tier Level B](#tier-level-b)
+    - [Mit fogunk csinálni?](#mit-fogunk-csinálni-1)
     - [Mappastruktúra](#mappastruktúra-1)
-    - [Feladat 1: Feladatsor: A 1. feladat](#feladat-1-feladatsor-a-1-feladat)
-    - [Feladat 2: Select implementalas](#feladat-2-select-implementalas)
-    - [Feladat 3: Checkbox implementalas](#feladat-3-checkbox-implementalas)
-    - [Feladat 4: Feladatsor: A 2. feladat](#feladat-4-feladatsor-a-2-feladat)
-    - [Feladat 5: Feladatsor: A 4-5. feladat](#feladat-5-feladatsor-a-4-5-feladat)
+    - [Feladat 1: Feladatsor: A 1. feladat (1 commit)](#feladat-1-feladatsor-a-1-feladat-1-commit)
+    - [Feladat 2: Select implementalas (2-3 commit)](#feladat-2-select-implementalas-2-3-commit)
+    - [Feladat 3: Checkbox implementalas (4-6 commit)](#feladat-3-checkbox-implementalas-4-6-commit)
+    - [Feladat 4: Feladatsor: A 2. feladat (7-8 commit)](#feladat-4-feladatsor-a-2-feladat-7-8-commit)
+    - [Feladat 5: Feladatsor: A 4-5. feladat (9-15 commit)](#feladat-5-feladatsor-a-4-5-feladat-9-15-commit)
     - [Feladat 6: Feladatsor: B 1. feladat](#feladat-6-feladatsor-b-1-feladat)
     - [Feladat 7: Feladatsor: B 2. feladat](#feladat-7-feladatsor-b-2-feladat)
     - [(opcionális) Feladat 8: Optimalizálás](#opcionális-feladat-8-optimalizálás)
   - [Tier Level C](#tier-level-c)
+    - [Mit fogunk csinálni?](#mit-fogunk-csinálni-2)
 
 
 # Követelmények
@@ -54,10 +57,13 @@
 - Ha kimaradt egy kommit, [lépj vissza](#visszalépés) addig ameddig folytonos
 - A commitüzeneteket az adott cellából másold
 - Ha olyat csinálnál, amit én nem csinálok, kérdezd meg, hogy szabad-e.
+- Szakmai diskurzusra mindig nyitott vagyok, ha felmerül kérdés, hogy miért így csináltam a reg repóban, akkor bátran tedd fel a kérdés. A gyik szekcióba beleteszem a fontos kérdéseket
+- A nem releváns kódot ne kommentezd ki, hanem töröld. Githubon commithistory-ban látni fogod minden commitodat visszamenőleg.
+- Tier B és Tier C esetén amikor a feladatot kell megoldani, a dolgozat szövege a mérvadó (nem a ref repót kell másolni)
 
 
 # Visszalépés
-Ha későn veszed észre, hogy már commitok óta hibás az implementációd, akkor vissza kell lépni az utolsó helyes commitra, és onnan előről kezdeni a feladat megoldását.
+Ha későn veszed észre, hogy már commitok óta hibás az implementációd, akkor vissza kell lépni az utolsó helyes commitra, és onnan előről kezdeni a feladat megoldását. Ha alakadsz, írj rám!
 4 lépésre van szükségünk ehhez:
 1. Megkeressük a commit history-ban az utolsó helyes commitot a repositorynknál
 2. A commit sorainak jobb oldalán a kettő <> mellett balra van egy kis duplanégyzet, arra rákattintunk, ez vágólapra másolja a commit azonosítóját
@@ -94,6 +100,7 @@ Ekkor add ki a következő parancsot:
 ```bash
 git reset --hard
 ```
+Ha alakadsz, írj rám!
 
 # Tesztelés menete (Tier B és Tier C)
 1. Csinálj egy mappát valahol. (ne a repó mappájába!)
@@ -110,7 +117,8 @@ pl.: ``` ./table_functional_tester-windows-latest.exe "..\xx_vilagirodalom\felad
 29 tesztből 24 sikeres, 0 sikertelen, 5 kihagyott
 *********************************************************
 ```
-ha 0 sikertelen van, akkor miután én is futtattam magamnál, megnézem a tartalmi részt.
+ha 0 sikertelen van, akkor miután én is futtattam magamnál, megnézem a tartalmi részt, egyébként megírom a bukó tesztek számát, és hogy mi bukott.
+Ha alakadsz, írj rám!
 
 
 # Beállítások
@@ -140,6 +148,48 @@ A script csakis a git repó mappában adható ki. Miután feltelepült a script 
 # Feladatok
 Szeretnélek megkérni (nem kötelező jelleggel), hogy a munkám segítése érdekében jegyezz nagyságrendi időket a feladatok során. Mire gondolok? Elolvasod a feladatot, becsülsz rá egy időt pl.: 5 óra. Ha elkészítetted a feladatot, akkor nagyságrendi időt szintén felirod pl.: 3 óra 25 perc volt, akkor 3-4 óra. Ez neked is hasznos, mert gyakran kell becsülni a szakmában 3 mondat alapján, hogy mennyi időt fogsz a feladattal tölteni. Ha nagyon nagyot becsülsz, akkor szólni fognak, hogy túl sok (tanulásnál mondjuk ilyen nincs), ha keveset, akkor meg meg fogsz szakadni.
 ## Tier Level A
+### Mit fogunk csinálni?
+A programozástechnikai alapokat (vezérlési szerkezetek, deklarációk) egy console.log-os alkalmazáson keresztül ismerjük meg. Mindeközben átvesszük a kódduplikációt csökkentő elemeket, és folyamatosan szépítjük a kódunkat.
+A kiiratott cellák határolói egyszerű függőleges vonalak. Tetszés szerint formázhatod szóközökkel.  
+pl.:  
+colspanos:
+```
+Ókori település | Ágazat | Példa | |
+Athén | politika | demokrácia |  |
+Athén | tudomány | filozófia |  |
+Egyiptom | mezőgazdaság | csatornák | gátak |
+Spárta | neveléstudomány | agogé |  |
+Spárta | harcászat | hoplita | phalanx |
+```
+ez megformázva így is kinézhet:
+```
+Ókori település |  Ágazat         | Példa      |         |
+Athén           | politika        | demokrácia |         |
+Athén           | tudomány        | filozófia  |         |
+Egyiptom        | mezőgazdaság    | csatornák  |  gátak  |
+Spárta          | neveléstudomány | agogé      |         |
+Spárta          | harcászat       | hoplita    | phalanx |
+```
+rowspanos:  
+```
+Ókori település | Ágazat | Példa |
+Athen | politika | demokrácia |
+ |_ | tudomány | filozófia |
+Egyiptom | mezőgazdaság | gátak |
+Spárta | neveléstudomány | agogé |
+ |_ | harcászat | hoplita |
+```
+megformázva szóközökkel:
+```
+Ókori település | Ágazat          | Példa      |
+    Athen       | politika        | demokrácia |
+       |_       | tudomány        | filozófia  |
+   Egyiptom     | mezőgazdaság    | gátak      |
+    Spárta      | neveléstudomány | agogé      |
+       |_       | harcászat       | hoplita    |
+```
+A console.log-os táblázatunkat átalakítjuk ezután rendes táblázatokká átismételve a Web API fontosabb függvényeit.  
+Az utolsó lépésben megnézzük hogyan működik a html elemek manipulációja javascriptben úgy, hogy maga a táblázat htmlben van implementálva. Itt még nem csináljuk meg a feladatsort, kizárólag az alapok gyakorlása a cél, hogy a következő szinten a táblázatok megjelenítése és módosítása már gördülékenyen menjen. Tier Level B-n amit most csinálunk, az 1 feladat lesz összesen.
 ### Mappastruktúra
 ```
 .
@@ -237,6 +287,9 @@ Ezekre figyelj: Mi a közös kódrész ebben a feladatban és a 4. feladatban?
 
 
 ## Tier Level B
+### Mit fogunk csinálni?
+Nekiállunk a feladatsornak. Megnézzük extraként a checkbox és a dropdownlist működését, valamint az "elrejtő logikát". Ezzel le tudjuk fedni a dolgozat variánsok 50%-át. Ami sajnos nem kerül bele a gyakorlásba külön, az az alapértelmezett értékek beállítása, de teljes értékűnek mondható a feladatsor is, hiszen a cél a Tier Level B végére a 100%-os dolgozat, bizonyítva, hogy meg tudod csinálni.
+
 ### Mappastruktúra
 ```
 .
@@ -252,19 +305,19 @@ Ezekre figyelj: Mi a közös kódrész ebben a feladatban és a 4. feladatban?
 └── README.md
 ```
 
-### Feladat 1: Feladatsor: A 1. feladat 
+### Feladat 1: Feladatsor: A 1. feladat (1 commit)
 Hozz létre egy feladatsor mappát és implementáld a feladatkiírás szerint a colspanos és rowspanos táblázatot. A táblázatok alatt legyen 2-2 gomb, ami hozzáfűz egy objektumot a táblázathoz megjelenítve új sor(oka)t a táblázatokban. A javascriptnél a tömbhöz fűzünk hozzá elemet és újrarendereljüj a táblázatokat, a html-nél a html-hez csatolunk új sort. 
 
-### Feladat 2: Select implementalas
+### Feladat 2: Select implementalas (2-3 commit)
 Hozz létre egy select mappát, és másold bele az elöző feladatban implementált alkalmazást. Hozz létre a html-en egy dropdownlist elemet, amelynek 3 eleme van: "Válassz elemet", "js", "html". A táblázatokat tedd bele egy divbe, majd a kiválasztott dropdown opció alapján jelenítsd meg a megfelelő div-et, és rejtsd el a másikat a hide osztály segítségével. Az oldal betöltésekor nem jelenítjük meg egyik táblázatot sem.
 
-### Feladat 3: Checkbox implementalas
+### Feladat 3: Checkbox implementalas (4-6 commit)
 Hozz létre egy checkbox mappát, és másold bele az 1. feladatban implementált alkalmazást. Hozz létre a html-en egy checkbox elemet, valamint tedd bele 1-1 divbe a megfelelő táblázatot. A checkbox értéke alapján, ha igaz, akkor jelenítsd meg a html-ben implementált div-et, és rejtsd el a másikat. Oldal betöltésekor a javascript táblázat jelenik meg.
 
-### Feladat 4: Feladatsor: A 2. feladat 
+### Feladat 4: Feladatsor: A 2. feladat (7-8 commit)
 A feladatsor mappában implementáld a dolgozat 2-es feladatát.
 
-### Feladat 5: Feladatsor: A 4-5. feladat 
+### Feladat 5: Feladatsor: A 4-5. feladat (9-15 commit)
 A feladatsor mappában Töröld a gombokat és implementáld a dolgozat 4-5-ös feladatát.
 
 ### Feladat 6: Feladatsor: B 1. feladat 
@@ -277,4 +330,5 @@ Implementáld a validációt az ürlap eseménykezelőihez.
 Ha van saját megoldásod, vagy tudnál egyszerűsíteni az alkalmazás kódján, akkor itt megteheted.
 
 ## Tier Level C
-Implementáld a feladatsort a a dolgozat kiírása szerint.
+### Mit fogunk csinálni?
+Implementáld a feladatsort a dolgozat kiírása szerint.
