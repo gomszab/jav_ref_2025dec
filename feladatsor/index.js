@@ -107,43 +107,16 @@ jsform.addEventListener('submit', function(e){ // regisztralunk egy esemenykezel
         errorDiv.innerText = ''; // toroljuk a hibauzenetet az aktualis elementrol
     }
 
-    if(inputTelep.value == ""){ // vizsgaljuk ures-e a telepulest tartalmazo input
-        /**
-         * @type {HTMLDivElement} a telepules inputnak a parentdivje
-         */
-        const inputParent = inputTelep.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
-        /**
-         * @type {HTMLDivElement} a telepules inputhoz tartozo erroros div
-         */
-        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
-        errorDiv.innerText = 'Település kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
-        valid = false; // a valid valtozot hamisra allitjuk
+    if(!validateField(inputTelep, 'Település kitöltése kötelező')){ // ha az inputtelep validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
     }
 
-    if(inputAgazat.value == ""){ // vizsgaljuk ures-e az elso agazatot tartalmazo input
-        /**
-         * @type {HTMLDivElement} az agazat inputnak a parentdivje
-         */
-        const inputParent = inputAgazat.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
-        /**
-         * @type {HTMLDivElement} az agazat inputhoz tartozo erroros div
-         */
-        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
-        errorDiv.innerText = 'Ágazat1 kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
-        valid = false; // a valid valtozot hamisra allitjuk
+    if(!validateField(inputAgazat, 'Ágazat1 kitöltése kötelező')){ // ha az inputagazat validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
     }
 
-    if(inputPelda.value == ""){ // vizsgaljuk ures-e az elso példát tartalmazo input
-        /**
-         * @type {HTMLDivElement} az pelda inputnak a parentdivje
-         */
-        const inputParent = inputPelda.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
-        /**
-         * @type {HTMLDivElement} a pelda inputhoz tartozo erroros div
-         */
-        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
-        errorDiv.innerText = 'Példa1 kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
-        valid = false; // a valid valtozot hamisra allitjuk
+    if(!validateField(inputPelda, 'Példa1 kitöltése kötelező')){ // ha az inputPelda validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
     }
 
     if(valid){ // ha a valid valtozo igaz
@@ -235,43 +208,16 @@ htmlForm.addEventListener('submit', function(e){ // definialunk egy submit eseme
         errorDiv.innerText = ''; // toroljuk a hibauzenetet az aktualis elementrol
     }
 
-    if(inputTelep.value == ""){ // vizsgaljuk ures-e a telepulest tartalmazo input
-        /**
-         * @type {HTMLDivElement} a telepules inputnak a parentdivje
-         */
-        const inputParent = inputTelep.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
-        /**
-         * @type {HTMLDivElement} a telepules inputhoz tartozo erroros div
-         */
-        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
-        errorDiv.innerText = 'Település kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
-        valid = false; // a valid valtozot hamisra allitjuk
+    if(!validateField(inputTelep, 'Település kitöltése kötelező')){ // ha az inputtelep validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
     }
 
-    if(inputAgazat.value == ""){ // vizsgaljuk ures-e az elso agazatot tartalmazo input
-        /**
-         * @type {HTMLDivElement} az agazat inputnak a parentdivje
-         */
-        const inputParent = inputAgazat.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
-        /**
-         * @type {HTMLDivElement} az agazat inputhoz tartozo erroros div
-         */
-        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
-        errorDiv.innerText = 'Ágazat1 kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
-        valid = false; // a valid valtozot hamisra allitjuk
+    if(!validateField(inputAgazat, 'Ágazat1 kitöltése kötelező')){ // ha az inputagazat validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
     }
 
-    if(inputPelda.value == ""){ // vizsgaljuk ures-e az elso példát tartalmazo input
-        /**
-         * @type {HTMLDivElement} az pelda inputnak a parentdivje
-         */
-        const inputParent = inputPelda.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
-        /**
-         * @type {HTMLDivElement} a pelda inputhoz tartozo erroros div
-         */
-        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
-        errorDiv.innerText = 'Példa1 kitöltése kötelező' // beallitjuk a div ertekenek a hibauzenetunket
-        valid = false; // a valid valtozot hamisra allitjuk
+    if(!validateField(inputPelda, 'Példa1 kitöltése kötelező')){ // ha az inputPelda validalasa hamissal ter vissza
+        valid = false; // a validot false-ra allitjuk
     }
 
     if(valid){ // vizsgaljuk, hogy a valid valtozo erteke igaz-e
@@ -313,3 +259,33 @@ htmlForm.addEventListener('submit', function(e){ // definialunk egy submit eseme
     }
     
 })
+
+/**
+ * 
+ * Ellenorizzuk, hogy ures-e az input field, es ha nem, akkor a hozzatartozo error elembe megjelenitunk hibauzenetet
+ * Ha ures az input, akkor hamissal ter vissza
+ * 
+ * @param {HTMLInputElementt} inputElem a validalando inputelement
+ * @param {string} errorMsg a megjelenitendo szoveg 
+ * 
+ * @returns {boolean}
+ */
+function validateField(inputElem, errorMsg){ // definialunk egy fuggvenyt a validacionak
+    /**
+     * @type {boolean} mutatja hogy az aktualis elemnek van-e tartalma.  Ha nincs tartalma akkor hamis lesz
+     */
+    let valid = true; // beallitunk egy lokalis valid valtozot
+    if(inputElem.value == ""){ // vizsgaljuk ures-e az elso példát tartalmazo input
+        /**
+         * @type {HTMLDivElement} az pelda inputnak a parentdivje
+         */
+        const inputParent = inputElem.parentElement; // elkerjuk azt az elemet amiben benne van az input a htmlen
+        /**
+         * @type {HTMLDivElement} a pelda inputhoz tartozo erroros div
+         */
+        const errorDiv = inputParent.querySelector('.error'); // a diven beluli elso error classal rendelkezo elemet lekerdezzuk
+        errorDiv.innerText = errorMsg // beallitjuk a div ertekenek a hibauzenetunket
+        valid = false; // a valid valtozot hamisra allitjuk
+    }
+    return valid; // visszaterunk a valid valtozoval
+}
