@@ -1,4 +1,5 @@
 - [Követelmények](#követelmények)
+- [Javítás menete:](#javítás-menete)
 - [Visszalépés](#visszalépés)
 - [Így használd a referencia repót](#így-használd-a-referencia-repót)
 - [Tesztelés menete (Tier B és Tier C)](#tesztelés-menete-tier-b-és-tier-c)
@@ -63,6 +64,26 @@
 - A nem releváns kódot ne kommentezd ki, hanem töröld. Githubon commithistory-ban látni fogod minden commitodat visszamenőleg.
 - Tier B és Tier C esetén amikor a feladatot kell megoldani, a dolgozat szövege a mérvadó (nem a ref repót kell másolni)
 
+# Javítás menete:
+Gombos Szabolcs vagyok, A tieres, szeretnék javítani.
+1. Kiválasztom a kedvenc feladatsorom a [Beállítások](#beállítások)-ból pl.: xx_vilagirodalom
+2. Létrehozom a repót a github accountomon xx_vilagirodalom néven
+3. Cloneozom a repómat, letöltöm a scriptet a [Beállítások](#beállítások) szerint
+4. Mivel A tieres vagyok, rám az [A tier](#tier-level-a) feladatai vonatkoznak, így a referencia repó szerint végighaladok azon a 36 lépésen
+5. Kész vagyok, szólok a tanárnak, ő átnézi, megállapítja, hogy mehetek-e tovább vagy sem.
+
+Gombos Szabolcs vagyok, a tanár azt mondta B tier (vagy mert A-s voltam, vagy mert alapból B-s).
+1. Kiválasztom a kedvenc feladatsorom a [Beállítások](#beállítások)-ból pl.: nyugatosok (az xx_vilagirodalom témát nem választhatom, ha A-ban választottam)
+2. Létrehozom a repót a github accountomon xx_vilagirodalom néven
+3. Cloneozom a repómat, letöltöm a scriptet a [Beállítások](#beállítások) szerint
+4. Mivel B tieres vagyok, rám az [B tier](#tier-level-b) feladatai vonatkoznak, így a referencia repó szerint végighaladok azon a 22 lépésen + ha van egyéb gondolatom, akkor hozzáteszem 23. ba azt
+5. Kész vagyok, szólok a tanárnak, ő átnézi, megállapítja, hogy mehetek-e tovább vagy sem.
+
+Gombos Szabolcs vagyok, a tanár azt mondta C tier
+1. Kiválasztom a kedvenc feladatsorom (vagy ami maradt) pl.: irodalom_mufaj
+2. A dolgozat feladatait követve megoldom a feladatsort (a commitjaim a doga commitjait követik)
+3. Kész vagyok, szólok a tanárnak, ő átnézi, megállapítja, hogy mehetek-e tovább vagy sem.
+
 
 # Visszalépés
 Ha későn veszed észre, hogy már commitok óta hibás az implementációd, akkor vissza kell lépni az utolsó helyes commitra, és onnan előről kezdeni a feladat megoldását. Ha alakadsz, írj rám!
@@ -73,7 +94,7 @@ Ha későn veszed észre, hogy már commitok óta hibás az implementációd, ak
  ```bash 
 git reset --hard (commitazonosito) 
 ```
-4. A következő parancs visszavonja a commit azonosító utáni összes commitunkat a githubon is:
+1. A következő parancs visszavonja a commit azonosító utáni összes commitunkat a githubon is:
 ```bash
 git push --force
 ```
