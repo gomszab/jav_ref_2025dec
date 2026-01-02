@@ -44,7 +44,7 @@
 - Ha valakivel egyezik méretre és tartalomra a munkád, akkor bukik a javítás, és kapsz egy egyest
 - A commitok szövege adott, commit elött mindig ellenőrízd, hogy az elvárt kimenet van.
 - Ha utólag jössz rá, hogy valamelyik commitban valami hibásan működött, akkor minden utána lévő commitot visszavonsz, kijavítod, és újraírod a dolgot. A visszalépés guide [itt](#visszalépés), amennyiben ez nem történik meg, és összevissza commitokat látok miután végeztél, akkor újra kell csinálnod az egészet egy új feladatsorral
-- Minden feladatnak új repositoryt csinálsz, a repo elnevezési guide [itt](#beállítások)
+- Minden feladatsornak új repositoryt csinálsz (Tehát amikor végigértél egy Tier levelen, és új feladatsort választasz. Feladatsoronként 1 repó magyarán), a repo elnevezési guide [itt](#beállítások)
 - A munkákon méretellenörzést fogok végezni és teljes tartalomra is checkolom. Ha teljes az egyezés 2 különböző diák között, mindketten 1-est kapnak.
 - AI használata tiltott, ha felmerül a gyanu, akkor kérdés nélkül bevágom a karót.
 - Ha 1-est kapsz, akkor újrakezded a feladatot, és a határidők továbbra is vonatkoznak rád
