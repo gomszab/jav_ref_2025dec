@@ -302,7 +302,7 @@ Ezekre figyelj: Mi a közös kódrész ebben a feladatban és a 4. feladatban?
 
 | Commit szám | Commit szövege        | Mit használhatok?           | Hogy néz ki?  | példa commit url | demo |
 |:-----------|:------:|:-------------:| :-----:|----:|--------|
-| 32. |init html row | Létrehozod html-ben colspanos táblázatot illetve a két gombot és beágyazod az index.js-t. | Látod a htmlben implementált táblázatot | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/263d4cb1da17e5259cbf9f1e170b8668f4a860e9) | 263d4cb1da17e5259cbf9f1e170b8668f4a860e9 |
+| 32. |init html row | Létrehozod html-ben rowspanos táblázatot illetve a két gombot és beágyazod az index.js-t. | Látod a htmlben implementált táblázatot | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/263d4cb1da17e5259cbf9f1e170b8668f4a860e9) | 263d4cb1da17e5259cbf9f1e170b8668f4a860e9 |
 | 33. | row html simple esemeny impl | Beregisztrálsz és implementálsz egy eseménykezelőt a szimplasoros gombra | Kattintásra létrejön egy új rowspan nélküli sor | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/fc98f063c4d8c8d0a373e7ab6c99946bf17877ea) | fc98f063c4d8c8d0a373e7ab6c99946bf17877ea |
 | 34. | row html double esemeny impl | Beregisztrálsz és implementálsz egy eseménykezelőt a duplasoros gombra | Kattintásra létrejön egy új rowspanos sor | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/15a6f70805ba9f9f876fe82492110acc855835be)  | 15a6f70805ba9f9f876fe82492110acc855835be |
 | 35. | row html ujsor | Kiszervezed függvénybe az új sor(ok) hozzáfűzésének logikáját | Nem változik a működés, mindkét gomb működik | [commit](https://github.com/gomszab/jav_ref_2025dec/tree/de0c8f94a576b9bb2eeaf6cd9dd3a2fbfaf84c42) | de0c8f94a576b9bb2eeaf6cd9dd3a2fbfaf84c42 |
