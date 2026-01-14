@@ -127,7 +127,7 @@ Ha alakadsz, írj rám!
 
 # Tesztelés menete (Tier B és Tier C)
 1. Csinálj egy mappát valahol. (ne a repó mappájába!)
-2. Töltsd le a legutóbbi verzióját a [tesztelő alkalmazásnak](https://github.com/gomszab/table_functional_tester/releases/tag/v0.0.7ae)
+2. Töltsd le a legutóbbi verzióját a [tesztelő alkalmazásnak](https://github.com/gomszab/table_functional_tester/releases/tag/v0.0.8ae)
 3. Másold bele a mappába (ne a meghajtó gyökerébe)
 4. Csinálj egy config.json-t a feladatsor mappába az index.html mellé, és másold be a tartalmát a config.jsonnak, amit a [táblázatban](#beállítások) megtalálsz
 5. git-bash-el navigálj a tablefunctionaltester alkalmazáshoz
